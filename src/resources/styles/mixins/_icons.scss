@@ -1,0 +1,59 @@
+@function unicode($str) {
+  @return unquote("\"") + $str + unquote("\"");
+}
+
+@mixin q4-icon($name) {
+  display: inline-block;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    font-family: 'iris';
+    content: unicode($name);
+  }
+}
+
+@mixin q4-icon-after($name) {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:after {
+    font-family: 'iris';
+    content: unicode($name);
+  }
+}
+
+
+@mixin q4-icon-before($name) {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &:before {
+    font-family: 'iris';
+    content: unicode($name);
+  }
+}

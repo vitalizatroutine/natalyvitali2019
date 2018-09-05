@@ -1,0 +1,145 @@
+@import '../../resources/styles/variables';
+
+.chips {
+  &_label, &_close {
+    transition-property: background-color, color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+
+  &_chip {
+    display: inline-block;
+    border-radius: $border-radius-small;
+
+    &:hover {
+      .chips_label {
+        color: $silver;
+      }
+    }
+  }
+
+  &_label, &_close, &_close i {
+    display: inline-block;
+    line-height: 25px;
+    vertical-align: top;
+  }
+
+  &_label {
+    padding: 0 10px;
+    background-color: $white;
+    border-radius: $border-radius-small 0 0 $border-radius-small;
+    color: $light-slate;
+  }
+
+  &_close {
+    width: 25px;
+    background-color: $soft-grey;
+    border-radius: 0 $border-radius-small $border-radius-small 0;
+    font-size: 8px;
+    color: $light-slate;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover {
+      color: $rain;
+    }
+  }
+
+  &--selectable & {
+    &_label {
+      cursor: pointer;
+    }
+  }
+
+  &--horizontal {
+    display: inline-block;
+    vertical-align: middle;
+
+    .chips {
+      &_chip:not(:first-child) {
+        margin-left: 3px;
+      }
+    }
+  }
+
+  &--vertical {
+    display: block;
+
+    .chips {
+      &_chip {
+        display: block;
+
+        &:not(:first-child) {
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+
+  &--input & {
+    &_label, &_close, &_close i {
+      line-height: 30px;
+    }
+
+    &_close {
+      width: 30px;
+      font-size: 7px;
+    }
+  }
+
+  &--tall & {
+    &_label, &_close, &_close i {
+      line-height: 40px;
+    }
+
+    &_label {
+      padding: 0 15px;
+    }
+
+    &_close {
+      width: 40px;
+    }
+  }
+
+  &--light &, &--pale-grey & {
+    &_label {
+      background-color: $pale-grey;
+      color: $light-slate;
+    }
+
+    &_close {
+      background-color: $soft-grey;
+      color: $light-slate;
+    }
+  }
+
+  &--slate &, &--charcoal & {
+    &_close:hover {
+      color: $citrus;
+    }
+  }
+
+  &--dark &, &--slate & {
+    &_label {
+      background-color: $slate;
+      color: $white;
+    }
+
+    &_close {
+      background-color: $dark-slate;
+      color: $citrus;
+    }
+  }
+
+  &--charcoal & {
+    &_label {
+      background-color: $charcoal;
+      color: $white;
+    }
+
+    &_close {
+      background-color: $black-smoke;
+      color: $silver;
+    }
+  }
+}

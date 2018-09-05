@@ -1,0 +1,41 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/generic';
+
+.editable-text {
+  display: inline-block;
+  vertical-align: top;
+
+  &_value, &_edit-toggle {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &_value {
+    margin-right: 10px;
+  }
+
+  &_edit-toggle {
+    font-size: $font-size-medium;
+    transition: color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: $rain;
+    }
+  }
+
+  .field {
+    &_input {
+      width: 350px;
+      border-radius: $border-radius-small 0 0 $border-radius-small;
+    }
+  }
+
+  &--editing {
+    .editable-text {
+      &_value {
+        margin-right: 0;
+      }
+    }
+  }
+}

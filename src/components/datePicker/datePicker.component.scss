@@ -1,0 +1,128 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/all';
+@import '../../resources/styles/icons/variables';
+
+.date-picker {
+  position: relative;
+
+  &_input {
+    display: inline-block;
+    height: $input-height-base;
+    padding: 0 15px;
+    border: none;
+    background: $pale-grey;
+    font-family: $font-family-base;
+    font-weight: $font-weight-normal;
+    color: $light-slate;
+    line-height: $input-height-base;
+
+    &::placeholder {
+      font-family: $font-family-base;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &_popper {
+    z-index: $z-index--level-three;
+  }
+
+  &--disabled & {
+    &_input {
+      color: #CCCCCC;
+    }
+  }
+
+  .react-datepicker {
+    min-width: 230px;
+    padding: $padding-vertical-xsmall $padding-horizontal-xsmall;
+    background-color: $q4-blue;
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    text-align: center;
+    color: $white;
+
+    &__triangle, &__header__dropdown {
+      display: none;
+    }
+
+    &__navigation {
+      position: absolute;
+      top: $padding-vertical-xsmall;
+      background: transparent;
+      border: none;
+      color: $white;
+      cursor: pointer;
+
+      &--previous {
+        left: $padding-horizontal-xsmall;
+        @include q4-icon($q4i-arrow-sm-left-4pt);
+        line-height: 18px;
+      }
+
+      &--next {
+        right: $padding-horizontal-xsmall;
+        @include q4-icon($q4i-arrow-sm-right-4pt);
+        line-height: 18px;
+      }
+    }
+
+    &__current-month {
+      padding-bottom: $padding-vertical-xsmall;
+      text-transform: uppercase;
+    }
+
+    &__month-container {
+
+    }
+
+    &__header {
+      line-height: 18px;
+    }
+
+    &__day-names, &__week {
+      @include flexbox();
+    }
+
+    &__day-names {
+      padding-bottom: $padding-vertical-xxsmall;
+    }
+
+    &__day-name {
+      @include flex(1);
+      text-transform: uppercase;
+    }
+
+    &__month {
+
+    }
+
+    &__day {
+      @include flex(1);
+      border-radius: $border-radius-small;
+      line-height: 21px;
+      cursor: pointer;
+
+      &:hover, &--selected {
+        background-color: $rain;
+      }
+
+      &--today {
+        background-color: $citrus;
+        color: $dark-slate;
+
+        &:hover {
+          color: $white;
+        }
+      }
+
+      &--outside-month {
+        color: rgba($white, 0.3);
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import 'variables';
+@import 'fonts';
+@import 'animations';
+@import 'icons/all';
+@import 'mixins/all';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: $font-family-base;
+  font-weight: $font-weight-normal;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $light-slate;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: $screen-small;
+  background-color: $slate;
+  background-size: cover;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: $font-weight-normal;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: $sky;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+input, textarea, button {
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+}
+
+input,
+textarea {
+  border: none;
+  outline: none;
+}
+
+button {
+  border: none;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+// globally remove clear icon from input field in IE
+::-ms-clear {
+  display: none;
+}
+
+@import 'ux/all';

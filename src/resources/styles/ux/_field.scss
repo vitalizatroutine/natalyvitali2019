@@ -1,0 +1,90 @@
+.field {
+  display: inline-block;
+  vertical-align: top;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &--full {
+    display: block;
+  }
+
+  &--spacer {
+    margin-left: 20px;
+  }
+
+  &--text, &--dropdown, &--date {
+    .field {
+      &_label {
+        display: block;
+        margin-bottom: $padding-vertical-xxsmall;
+        line-height: $label-height-base;
+      }
+    }
+  }
+
+  &--text {
+    .field {
+      &_input {
+        display: inline-block;
+        height: $input-height-base;
+        padding: 0 15px;
+        border: none;
+        background: $pale-grey;
+        font-family: $font-family-base;
+        font-weight: $font-weight-normal;
+        color: $light-slate;
+        line-height: $input-height-base;
+
+        &--short {
+          max-width: 150px;
+        }
+
+        &::placeholder {
+          font-family: $font-family-base;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        &:read-only {
+          color: #CCCCCC;
+        }
+
+        &[type='number']::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+        }
+
+        & + .button {
+          vertical-align: top;
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+      }
+    }
+
+    &:not(.field--full) {
+      & + .field:not(.field--full) {
+        margin-left: 20px;
+      }
+    }
+
+    &.field--full {
+      .field_input {
+        width: 100%;
+        max-width: none;
+      }
+    }
+
+    &.field--slate {
+      .field {
+        &_input {
+          background-color: $slate;
+          color: $white;
+        }
+      }
+    }
+  }
+}

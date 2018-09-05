@@ -1,0 +1,26 @@
+// Mixin to prefix several properties at once.
+//
+// @author Hugo Giraudel
+// @param {Map} $declarations - Declarations to prefix
+// @param {List} $prefixes (()) - List of prefixes to print
+//
+// Usage:
+//
+// .selector {
+//   @include prefix((
+//     column-count: 3,
+//     column-gap: 1.5em,
+//     column-rule: 2px solid hotpink
+//   ), webkit moz);
+// }
+
+@mixin prefix($declarations, $prefixes: (moz o ms webkit)) {
+
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+    #{$property}: $value;
+  }
+
+}

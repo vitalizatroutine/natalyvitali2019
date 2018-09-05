@@ -1,0 +1,30 @@
+@import '../../resources/styles/variables';
+
+.read-more {
+  &_link {
+    margin-left: 5px;
+    color: $citrus;
+    cursor: pointer;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $mustard;
+    }
+
+    &--rain {
+      color: $rain;
+
+      &:hover {
+        color: $q4-blue;
+      }
+    }
+
+    &--sky {
+      color: $sky;
+
+      &:hover {
+        color: $steel;
+      }
+    }
+  }
+}

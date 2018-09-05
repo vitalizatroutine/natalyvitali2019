@@ -1,0 +1,57 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/flex';
+
+.detail-list {
+  &_title {
+    font-size: $font-size-medium;
+    margin-bottom: $padding-vertical-small;
+    color: $charcoal;
+  }
+
+  &_list {
+    list-style: none;
+  }
+
+  &_item {
+    line-height: 40px;
+    border-top: 1px solid $soft-grey;
+
+    @include flexbox();
+    @include align-items(center);
+
+    &:last-child {
+      border-bottom: 1px solid $soft-grey;
+    }
+  }
+
+  &_icon {
+    width: 30px;
+
+    &--spice {
+      color: $spice;
+    }
+
+    &--teal {
+      color: $teal;
+    }
+  }
+
+  &_label {
+    min-width: 70px;
+    margin-right: 30px;
+  }
+
+  &_value {
+    span:not(:first-child) {
+      margin-left: $padding-horizontal-medium;
+    }
+
+    i {
+      margin-right: 8px;
+    }
+  }
+
+  & + & {
+    margin-top: $padding-vertical-base;
+  }
+}

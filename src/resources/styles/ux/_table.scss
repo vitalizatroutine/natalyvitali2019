@@ -1,0 +1,212 @@
+@import '../../../resources/styles/variables';
+@import '../../../resources/styles/mixins/all';
+
+.table {
+  background-color: $white;
+
+  // rows
+  &_row {
+    height: 50px;
+
+    &--clickable {
+      cursor: pointer;
+    }
+
+    &--noresults {
+      .data-table_cell {
+        padding: $padding-vertical-medium $padding-horizontal-small;
+        text-align: center;
+        border-bottom: 1px solid $soft-grey;
+      }
+    }
+  }
+
+  // cells
+  &_cell {
+    min-width: 40px;
+    color: $light-slate;
+    padding: $padding-vertical-xxsmall $padding-horizontal-xsmall;
+    border-bottom: 1px solid $soft-grey;
+
+    // first column
+    &:first-child {
+      padding-left: $padding-horizontal-base;
+    }
+
+    // last column
+    &:last-child {
+      padding-right: $padding-horizontal-base;
+    }
+
+    &--wider {
+      min-width: 300px;
+    }
+
+    &--wide {
+      min-width: 180px;
+    }
+
+    &--default {
+      min-width: 120px;
+    }
+
+    &--narrow {
+      min-width: 100px;
+    }
+
+    &--narrower {
+      min-width: 80px;
+    }
+
+    &--left {
+      text-align: left;
+    }
+
+    &--right {
+      text-align: right;
+    }
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &_value {
+    &--up {
+      color: $teal;
+    }
+
+    &--down {
+      color: $spice;
+    }
+
+    &--indented {
+      margin-left: $padding-horizontal-medium;
+    }
+  }
+
+  &--alternating {
+    th.data-table_cell {
+      &:nth-child(even) {
+        background-color: mix($sky, #000, 90%);
+      }
+
+      &:not(:first-child) {
+        text-align: center;
+      }
+    }
+
+    td.data-table_cell {
+      &:nth-child(even) {
+        background-color: $muted-grey;
+      }
+
+      &:not(:first-child) {
+        text-align: right;
+      }
+    }
+  }
+
+  &--small, &--xsmall {
+    .data-table {
+      &_cell {
+        &:first-child {
+          padding-left: $padding-horizontal-xsmall;
+        }
+
+        &:last-child {
+          padding-right: $padding-horizontal-xsmall;
+        }
+      }
+    }
+  }
+
+  &--small {
+    .data-table {
+      &_row {
+        height: 40px;
+      }
+    }
+  }
+
+  &--xsmall {
+    .data-table {
+      &_row {
+        height: 30px;
+      }
+    }
+  }
+
+  // pagination (limited BEM conventions due to antd restrictions)
+  &_pagination {
+    @include flexbox();
+    @include justify-content(center);
+    margin: $padding-vertical-base auto;
+
+    // pagination buttons
+    &-item, &-jump-next, &-prev, &-next {
+      background-color: $pale-grey;
+      padding: $padding-vertical-xsmall 6px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      cursor: pointer;
+      @include flexbox();
+      @include align-items(center);
+      @include justify-content(center);
+
+      a {
+        color: $silver;
+        outline: none;
+        transition: none;
+        &:hover {
+          color: $dark-slate;
+        }
+      }
+
+      &-active a, &-active a:hover {
+        color: $sky;
+      }
+    }
+
+    // more button
+    &-jump-next {
+      a:before {
+        content: '...';
+        letter-spacing: 1px;
+      }
+    }
+
+    // prev button
+    &-prev {
+      width: 40px;
+      margin: 0 1px;
+      border-radius: $border-radius-small 0 0 $border-radius-small;
+      a {
+        @include q4-icon-before($q4i-arrow-sm-left-4pt);
+        color: $sky;
+      }
+    }
+
+    // next button
+    &-next {
+      width: 40px;
+      margin: 0 1px;
+      border-radius: 0 $border-radius-small 0 $border-radius-small 0;
+      a {
+        @include q4-icon-before($q4i-arrow-sm-right-4pt);
+        color: $sky;
+      }
+    }
+
+    // extra padding for first and last page
+    li {
+      &:nth-of-type(2) {
+        padding-left: $padding-horizontal-medium;
+      }
+      &:nth-last-of-type(2) {
+        padding-right: $padding-horizontal-medium;
+      }
+    }
+  }
+}

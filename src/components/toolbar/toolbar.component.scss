@@ -1,0 +1,62 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/flex';
+
+.toolbar {
+  width: 100%;
+  color: $white;
+  background-color: $rain;
+
+  &_inner {
+    min-height: 70px;
+    @include flexbox();
+    @include flex-direction(column);
+    @include justify-content(center);
+    padding: 0 $padding-horizontal-base;
+  }
+
+  // toolbar rows
+  &_row {
+    position: relative;
+
+    &:first-child {
+      padding-top: $padding-vertical-base;
+    }
+
+    &:last-child {
+      padding-bottom: $padding-vertical-base;
+    }
+
+    & + & {
+      padding-top: $padding-vertical-xsmall;
+    }
+
+    & > *:not(:first-child) {
+      margin-left: $padding-vertical-base;
+    }
+  }
+
+  & &_docked-element {
+    position: absolute;
+
+    &--right {
+      right: 0;
+    }
+
+    &--left {
+      left: 0;
+    }
+  }
+
+  // themes
+  &--steel {
+    background-color: $steel;
+  }
+
+  &--q4-blue {
+    background-color: $q4-blue;
+  }
+
+  &--ink {
+    background-color: $ink;
+  }
+}

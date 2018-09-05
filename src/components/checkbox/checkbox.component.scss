@@ -1,0 +1,139 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/icons';
+@import '../../resources/styles/icons/variables';
+
+@mixin checkboxTheme($textColor, $checkedTextColor, $backgroundColor, $checkedBackgroundColor) {
+  .checkbox_label {
+    &:before, &:after {
+      background-color: $backgroundColor;
+      color: $textColor;
+    }
+  }
+
+  &.checkbox--checked {
+    .checkbox_label:before, .checkbox_label:after {
+      background-color: $checkedBackgroundColor;
+      color: $checkedTextColor;
+    }
+  }
+}
+
+.checkbox {
+  &_label {
+    display: inline-block;
+    line-height: $label-height-base;
+    user-select: none;
+
+    &:before, &:after {
+      content: '';
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      padding-top: 1px;
+      line-height: 18px;
+      background-color: $light-grey;
+      border-radius: 3px;
+      font-size: 11px;
+      text-align: center;
+      color: transparent;
+      vertical-align: text-bottom;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    &--right {
+      @include q4-icon($q4i-checkmark-4pt);
+      line-height: $label-height-base;
+
+      &:before {
+        margin-right: 8px;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+
+    &--left {
+      @include q4-icon-after($q4i-checkmark-4pt);
+      line-height: $label-height-base;
+
+      &:before {
+        display: none;
+      }
+
+      &:after {
+        margin-left: 8px;
+      }
+    }
+  }
+
+  &_input {
+    display: none;
+  }
+
+  &--checked {
+    .checkbox {
+      &_label {
+        &:before, &:after {
+          background-color: $rain;
+          color: $white;
+        }
+      }
+    }
+  }
+
+  &--dark {
+    @include checkboxTheme(transparent, $dark-slate, $dark-slate, $citrus);
+  }
+
+  &--teal {
+    @include checkboxTheme(transparent, $white, $light-grey, $teal);
+  }
+
+  &--spice {
+    @include checkboxTheme(transparent, $white, $light-grey, $spice);
+  }
+
+  &--steel {
+    @include checkboxTheme(transparent, $white, $steel, $slate);
+  }
+
+  &--q4-blue {
+    @include checkboxTheme(transparent, $white, $q4-blue, $slate);
+  }
+
+  &--small {
+    .checkbox {
+      &_label {
+        line-height: 13px;
+
+        &:before, &:after {
+          width: 13px;
+          height: 13px;
+          padding-top: 0;
+          line-height: 13px;
+          font-size: 8px;
+          vertical-align: top;
+        }
+
+        &--right {
+          &:before {
+            margin-right: 5px;
+          }
+        }
+
+        &--left {
+          &:after {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,51 @@
+@keyframes fadein-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein-opacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout-opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeout-opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// animation
+.q4-fade-in {
+  @include prefix((animation-name: fadein-opacity));
+  @include prefix((animation-duration: 0.3s));
+  @include prefix((animation-iteration-count: 1));
+
+  &--transparent {
+    opacity:0;
+  }
+
+}
+
+.q4-fade-out {
+  @include prefix((animation-name: fadeout-opacity));
+  @include prefix((animation-duration: 0.3s));
+  @include prefix((animation-iteration-count: 1));
+}

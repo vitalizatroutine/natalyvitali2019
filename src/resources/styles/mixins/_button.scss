@@ -1,0 +1,25 @@
+@mixin color-attributes($base-background, $base, $hover-background, $hover) {
+  background-color: $base-background;
+  color: $base;
+
+  &:hover, &:focus {
+    background: $hover-background;
+    color: $hover;
+  }
+
+  &.button--loading {
+    &:focus {
+      background: $base-background;
+    }
+
+    &:before {
+      border-color: rgba($base, .3);
+    }
+  }
+
+  &:disabled,
+  &.button--disabled {
+    background: $base-background;
+    color: rgba($base, .3);
+  }
+}

@@ -1,0 +1,168 @@
+@import '../mixins/button';
+
+.button {
+  display: inline-block;
+  border-radius: $border-radius-small;
+  padding: 0 $padding-horizontal-small;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  @include color-attributes($dark-slate, $citrus, $citrus, $dark-slate);
+
+  & + &:not(&--utility) {
+    margin-left: $padding-horizontal-xsmall;
+  }
+
+  &:hover {
+    .tooltip {
+      display: block;
+    }
+  }
+
+  &_icon {
+    margin-right: 10px;
+  }
+
+  &--square, &--circle {
+    position: relative;
+    padding: 0;
+    width: 30px;
+
+    .button_icon {
+      margin-right: 0;
+    }
+
+    .tooltip {
+      display: none;
+    }
+  }
+
+  &--circle {
+    border-radius: $border-radius-circle;
+  }
+
+  &--tall {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  &--tall.button--square,
+  &--tall.button--circle {
+    width: 40px;
+
+    .button_icon {
+      font-size: $font-size-medium;
+      line-height: 40px;
+    }
+  }
+
+  &--utility {
+    padding: 0;
+    width: 36px;
+    height: 36px;
+
+    .button_icon {
+      margin-right: 0;
+      font-size: $font-size-xxlarge;
+      line-height: 36px;
+    }
+
+    @include color-attributes(transparent, $citrus, transparent, $mustard);
+  }
+
+  &--rain {
+    @include color-attributes($rain, $white, $steel, $white);
+  }
+
+  &--steel {
+    @include color-attributes($steel, $white, $q4-blue, $white);
+  }
+
+  &--q4-blue {
+    @include color-attributes($q4-blue, $white, $deep-blue, $white);
+  }
+
+  &--ink {
+    @include color-attributes($ink, $white, $midnight, $white);
+  }
+
+  &--spice {
+    @include color-attributes($spice, $white, $cherry, $white);
+  }
+
+  &--citrus {
+    @include color-attributes($citrus, $dark-slate, $mustard, $dark-slate);
+  }
+
+  &--slate {
+    @include color-attributes($slate, $citrus, $mustard, $dark-slate);
+  }
+
+  &--charcoal {
+    @include color-attributes($charcoal, $citrus, $citrus, $dark-slate);
+  }
+
+  &--black-smoke {
+    @include color-attributes($black-smoke, $citrus, $citrus, $dark-slate);
+  }
+
+  &--black-pearl {
+    @include color-attributes($black-pearl, $white, $charcoal, $citrus);
+  }
+
+  &--white {
+    @include color-attributes($white, $slate, $pale-grey, $slate);
+  }
+
+  &--silver {
+    @include color-attributes($silver, $white, $grey, $white);
+  }
+
+  &--pale-grey {
+    @include color-attributes($pale-grey, $light-slate, $soft-grey, $light-slate);
+  }
+
+  &--shaded {
+    @include color-attributes($transparent-dark-15, $white, $transparent-dark-20, $white);
+  }
+
+  &--cancel,
+  &--transparent {
+    padding: 0 $padding-horizontal-xsmall;
+    text-transform: capitalize;
+
+    @include color-attributes(transparent, $silver, transparent, $white);
+  }
+
+  &--loading {
+    position: relative;
+    pointer-events: none;
+
+    &, &:focus {
+      color: transparent;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: calc(50% - 12px);
+      left: calc(50% - 12px);
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid rgba($white, 0.3);
+      border-radius: $border-radius-circle;
+      animation: loading-pulse 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+    }
+  }
+
+  &:disabled,
+  &--disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+}

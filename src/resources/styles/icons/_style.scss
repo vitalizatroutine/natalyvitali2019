@@ -1,0 +1,1343 @@
+@import 'variables';
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff2?i5zsk5') format('woff2'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?i5zsk5') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?i5zsk5') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?i5zsk5##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="q4i-"], [class*=" q4i-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.q4i-presentation-4pt {
+  &:before {
+    content: $q4i-presentation-4pt;
+  }
+}
+.q4i-webcast-4pt {
+  &:before {
+    content: $q4i-webcast-4pt;
+  }
+}
+.q4i-xls-1pt {
+  &:before {
+    content: $q4i-xls-1pt;
+  }
+}
+.q4i-xls-2pt {
+  &:before {
+    content: $q4i-xls-2pt;
+  }
+}
+.q4i-xls-4pt {
+  &:before {
+    content: $q4i-xls-4pt;
+  }
+}
+.q4i-funnel-filter-1pt {
+  &:before {
+    content: $q4i-funnel-filter-1pt;
+  }
+}
+.q4i-funnel-filter-2pt {
+  &:before {
+    content: $q4i-funnel-filter-2pt;
+  }
+}
+.q4i-funnel-filter-4pt {
+  &:before {
+    content: $q4i-funnel-filter-4pt;
+  }
+}
+.q4i-search-1pt {
+  &:before {
+    content: $q4i-search-1pt;
+  }
+}
+.q4i-search-4pt {
+  &:before {
+    content: $q4i-search-4pt;
+  }
+}
+.q4i-pdf-1pt {
+  &:before {
+    content: $q4i-pdf-1pt;
+  }
+}
+.q4i-pdf-2pt {
+  &:before {
+    content: $q4i-pdf-2pt;
+  }
+}
+.q4i-pdf-4pt {
+  &:before {
+    content: $q4i-pdf-4pt;
+  }
+}
+.q4i-table-1pt {
+  &:before {
+    content: $q4i-table-1pt;
+  }
+}
+.q4i-table-4pt {
+  &:before {
+    content: $q4i-table-4pt;
+  }
+}
+.q4i-activity-1pt {
+  &:before {
+    content: $q4i-activity-1pt;
+  }
+}
+.q4i-notifications-1pt {
+  &:before {
+    content: $q4i-notifications-1pt;
+  }
+}
+.q4i-generate-1pt {
+  &:before {
+    content: $q4i-generate-1pt;
+  }
+}
+.q4i-generate-2pt {
+  &:before {
+    content: $q4i-generate-2pt;
+  }
+}
+.q4i-generate-4pt {
+  &:before {
+    content: $q4i-generate-4pt;
+  }
+}
+.q4i-request-2pt {
+  &:before {
+    content: $q4i-request-2pt;
+  }
+}
+.q4i-request-4pt {
+  &:before {
+    content: $q4i-request-4pt;
+  }
+}
+.q4i-position-1pt {
+  &:before {
+    content: $q4i-position-1pt;
+  }
+}
+.q4i-position-2pt {
+  &:before {
+    content: $q4i-position-2pt;
+  }
+}
+.q4i-position-4pt {
+  &:before {
+    content: $q4i-position-4pt;
+  }
+}
+.q4i-custom-4pt {
+  &:before {
+    content: $q4i-custom-4pt;
+  }
+}
+.q4i-target-1pt {
+  &:before {
+    content: $q4i-target-1pt;
+  }
+}
+.q4i-target-2pt {
+  &:before {
+    content: $q4i-target-2pt;
+  }
+}
+.q4i-target-4pt {
+  &:before {
+    content: $q4i-target-4pt;
+  }
+}
+.q4i-targeting-4pt {
+  &:before {
+    content: $q4i-targeting-4pt;
+  }
+}
+.q4i-lock-4pt {
+  &:before {
+    content: $q4i-lock-4pt;
+  }
+}
+.q4i-nodata-4pt {
+  &:before {
+    content: $q4i-nodata-4pt;
+  }
+}
+.q4i-notifications-4pt {
+  &:before {
+    content: $q4i-notifications-4pt;
+  }
+}
+.q4i-releases-4pt {
+  &:before {
+    content: $q4i-releases-4pt;
+  }
+}
+.q4i-stage-1pt {
+  &:before {
+    content: $q4i-stage-1pt;
+  }
+}
+.q4i-stage-2pt {
+  &:before {
+    content: $q4i-stage-2pt;
+  }
+}
+.q4i-stage-4pt {
+  &:before {
+    content: $q4i-stage-4pt;
+  }
+}
+.q4i-transcripts-4pt {
+  &:before {
+    content: $q4i-transcripts-4pt;
+  }
+}
+.q4i-insider-4pt {
+  &:before {
+    content: $q4i-insider-4pt;
+  }
+}
+.q4i-press-releases-4pt {
+  &:before {
+    content: $q4i-press-releases-4pt;
+  }
+}
+.q4i-iris-logo {
+  &:before {
+    content: $q4i-iris-logo;
+  }
+}
+.q4i-swap-2pt {
+  &:before {
+    content: $q4i-swap-2pt;
+  }
+}
+.q4i-swap-4pt {
+  &:before {
+    content: $q4i-swap-4pt;
+  }
+}
+.q4i-scale-1pt {
+  &:before {
+    content: $q4i-scale-1pt;
+  }
+}
+.q4i-scale-2pt {
+  &:before {
+    content: $q4i-scale-2pt;
+  }
+}
+.q4i-scale-4pt {
+  &:before {
+    content: $q4i-scale-4pt;
+  }
+}
+.q4i-fullscreen-exit-1pt {
+  &:before {
+    content: $q4i-fullscreen-exit-1pt;
+  }
+}
+.q4i-fullscreen-exit-2pt {
+  &:before {
+    content: $q4i-fullscreen-exit-2pt;
+  }
+}
+.q4i-fullscreen-exit-4pt {
+  &:before {
+    content: $q4i-fullscreen-exit-4pt;
+  }
+}
+.q4i-volatility-4pt {
+  &:before {
+    content: $q4i-volatility-4pt;
+  }
+}
+.q4i-sentiment-4pt {
+  &:before {
+    content: $q4i-sentiment-4pt;
+  }
+}
+.q4i-question-mark-4pt {
+  &:before {
+    content: $q4i-question-mark-4pt;
+  }
+}
+.q4i-star-fill {
+  &:before {
+    content: $q4i-star-fill;
+  }
+}
+.q4i-security-mapping-2pt {
+  &:before {
+    content: $q4i-security-mapping-2pt;
+  }
+}
+.q4i-move-to-list-4pt {
+  &:before {
+    content: $q4i-move-to-list-4pt;
+  }
+}
+.q4i-book-2pt {
+  &:before {
+    content: $q4i-book-2pt;
+  }
+}
+.q4i-mobile-1pt {
+  &:before {
+    content: $q4i-mobile-1pt;
+  }
+}
+.q4i-savedtargets-2pt {
+  &:before {
+    content: $q4i-savedtargets-2pt;
+  }
+}
+.q4i-rss-4pt {
+  &:before {
+    content: $q4i-rss-4pt;
+  }
+}
+.q4i-feedback-2pt {
+  &:before {
+    content: $q4i-feedback-2pt;
+  }
+}
+.q4i-price-4pt {
+  &:before {
+    content: $q4i-price-4pt;
+  }
+}
+.q4i-rating-4pt {
+  &:before {
+    content: $q4i-rating-4pt;
+  }
+}
+.q4i-price-2pt {
+  &:before {
+    content: $q4i-price-2pt;
+  }
+}
+.q4i-rating-2pt {
+  &:before {
+    content: $q4i-rating-2pt;
+  }
+}
+.q4i-insider-2pt {
+  &:before {
+    content: $q4i-insider-2pt;
+  }
+}
+.q4i-buyers-2pt {
+  &:before {
+    content: $q4i-buyers-2pt;
+  }
+}
+.q4i-sellers-2pt {
+  &:before {
+    content: $q4i-sellers-2pt;
+  }
+}
+.q4i-reportclosed-4pt {
+  &:before {
+    content: $q4i-reportclosed-4pt;
+  }
+}
+.q4i-reportno-4pt {
+  &:before {
+    content: $q4i-reportno-4pt;
+  }
+}
+.q4i-reportopen-4pt {
+  &:before {
+    content: $q4i-reportopen-4pt;
+  }
+}
+.q4i-research-2pt {
+  &:before {
+    content: $q4i-research-2pt;
+  }
+}
+.q4i-arrowdouble-sm-left-4pt {
+  &:before {
+    content: $q4i-arrowdouble-sm-left-4pt;
+  }
+}
+.q4i-arrowdouble-sm-right-4pt {
+  &:before {
+    content: $q4i-arrowdouble-sm-right-4pt;
+  }
+}
+.q4i-sync-2pt {
+  &:before {
+    content: $q4i-sync-2pt;
+  }
+}
+.q4i-sync-4pt {
+  &:before {
+    content: $q4i-sync-4pt;
+  }
+}
+.q4i-mail-4pt {
+  &:before {
+    content: $q4i-mail-4pt;
+  }
+}
+.q4i-phone-4pt {
+  &:before {
+    content: $q4i-phone-4pt;
+  }
+}
+.q4i-edit-4pt {
+  &:before {
+    content: $q4i-edit-4pt;
+  }
+}
+.q4i-desktop-1pt {
+  &:before {
+    content: $q4i-desktop-1pt;
+  }
+}
+.q4i-tablet-2pt {
+  &:before {
+    content: $q4i-tablet-2pt;
+  }
+}
+.q4i-tablet-1pt {
+  &:before {
+    content: $q4i-tablet-1pt;
+  }
+}
+.q4i-session-2pt {
+  &:before {
+    content: $q4i-session-2pt;
+  }
+}
+.q4i-session-1pt {
+  &:before {
+    content: $q4i-session-1pt;
+  }
+}
+.q4i-rate-2pt {
+  &:before {
+    content: $q4i-rate-2pt;
+  }
+}
+.q4i-rate-1pt {
+  &:before {
+    content: $q4i-rate-1pt;
+  }
+}
+.q4i-pages-session-2pt {
+  &:before {
+    content: $q4i-pages-session-2pt;
+  }
+}
+.q4i-pages-session-1pt {
+  &:before {
+    content: $q4i-pages-session-1pt;
+  }
+}
+.q4i-new-user-2pt {
+  &:before {
+    content: $q4i-new-user-2pt;
+  }
+}
+.q4i-new-user-1pt {
+  &:before {
+    content: $q4i-new-user-1pt;
+  }
+}
+.q4i-new-session-2pt {
+  &:before {
+    content: $q4i-new-session-2pt;
+  }
+}
+.q4i-new-session-1pt {
+  &:before {
+    content: $q4i-new-session-1pt;
+  }
+}
+.q4i-contact-1pt {
+  &:before {
+    content: $q4i-contact-1pt;
+  }
+}
+.q4i-savedsearches-2pt {
+  &:before {
+    content: $q4i-savedsearches-2pt;
+  }
+}
+.q4i-targeting-2pt {
+  &:before {
+    content: $q4i-targeting-2pt;
+  }
+}
+.q4i-stop-watch-4pt {
+  &:before {
+    content: $q4i-stop-watch-4pt;
+  }
+}
+.q4i-longarrow-down-2pt {
+  &:before {
+    content: $q4i-longarrow-down-2pt;
+  }
+}
+.q4i-longarrow-up-2pt {
+  &:before {
+    content: $q4i-longarrow-up-2pt;
+  }
+}
+.q4i-info-fill {
+  &:before {
+    content: $q4i-info-fill;
+  }
+}
+.q4i-noresults-2pt {
+  &:before {
+    content: $q4i-noresults-2pt;
+  }
+}
+.q4i-noresults-4pt {
+  &:before {
+    content: $q4i-noresults-4pt;
+  }
+}
+.q4i-nodata-2pt {
+  &:before {
+    content: $q4i-nodata-2pt;
+  }
+}
+.q4i-trashbin-4pt {
+  &:before {
+    content: $q4i-trashbin-4pt;
+  }
+}
+.q4i-flexible-2pt {
+  &:before {
+    content: $q4i-flexible-2pt;
+  }
+}
+.q4i-plus-4pt {
+  &:before {
+    content: $q4i-plus-4pt;
+  }
+}
+.q4i-minus-4pt {
+  &:before {
+    content: $q4i-minus-4pt;
+  }
+}
+.q4i-checkmark-4pt {
+  &:before {
+    content: $q4i-checkmark-4pt;
+  }
+}
+.q4i-surveillance-2pt {
+  &:before {
+    content: $q4i-surveillance-2pt;
+  }
+}
+.q4i-activist-4pt {
+  &:before {
+    content: $q4i-activist-4pt;
+  }
+}
+.q4i-ownership-2pt {
+  &:before {
+    content: $q4i-ownership-2pt;
+  }
+}
+.q4i-watchlist-2pt {
+  &:before {
+    content: $q4i-watchlist-2pt;
+  }
+}
+.q4i-support-2pt {
+  &:before {
+    content: $q4i-support-2pt;
+  }
+}
+.q4i-presentation-2pt {
+  &:before {
+    content: $q4i-presentation-2pt;
+  }
+}
+.q4i-bookmark-2pt {
+  &:before {
+    content: $q4i-bookmark-2pt;
+  }
+}
+.q4i-export-4pt {
+  &:before {
+    content: $q4i-export-4pt;
+  }
+}
+.q4i-logout-2pt {
+  &:before {
+    content: $q4i-logout-2pt;
+  }
+}
+.q4i-download-2pt {
+  &:before {
+    content: $q4i-download-2pt;
+  }
+}
+.q4i-download-4pt {
+  &:before {
+    content: $q4i-download-4pt;
+  }
+}
+.q4i-more-4pt {
+  &:before {
+    content: $q4i-more-4pt;
+  }
+}
+.q4i-time-1pt {
+  &:before {
+    content: $q4i-time-1pt;
+  }
+}
+.q4i-time-2pt {
+  &:before {
+    content: $q4i-time-2pt;
+  }
+}
+.q4i-book-4pt {
+  &:before {
+    content: $q4i-book-4pt;
+  }
+}
+.q4i-roadshow-2pt {
+  &:before {
+    content: $q4i-roadshow-2pt;
+  }
+}
+.q4i-collection-2pt {
+  &:before {
+    content: $q4i-collection-2pt;
+  }
+}
+.q4i-collection-4pt {
+  &:before {
+    content: $q4i-collection-4pt;
+  }
+}
+.q4i-userprofile-2pt {
+  &:before {
+    content: $q4i-userprofile-2pt;
+  }
+}
+.q4i-ticker-2pt {
+  &:before {
+    content: $q4i-ticker-2pt;
+  }
+}
+.q4i-add-to-list-4pt {
+  &:before {
+    content: $q4i-add-to-list-4pt;
+  }
+}
+.q4i-review-undomove-4pt {
+  &:before {
+    content: $q4i-review-undomove-4pt;
+  }
+}
+.q4i-review-archive-4pt {
+  &:before {
+    content: $q4i-review-archive-4pt;
+  }
+}
+.q4i-caret-sm-left-2pt {
+  &:before {
+    content: $q4i-caret-sm-left-2pt;
+  }
+}
+.q4i-custom-2pt {
+  &:before {
+    content: $q4i-custom-2pt;
+  }
+}
+.q4i-add-to-calendar-4pt {
+  &:before {
+    content: $q4i-add-to-calendar-4pt;
+  }
+}
+.q4i-filter-2pt {
+  &:before {
+    content: $q4i-filter-2pt;
+  }
+}
+.q4i-conference-2pt {
+  &:before {
+    content: $q4i-conference-2pt;
+  }
+}
+.q4i-venue-2pt {
+  &:before {
+    content: $q4i-venue-2pt;
+  }
+}
+.q4i-undo-4pt {
+  &:before {
+    content: $q4i-undo-4pt;
+  }
+}
+.q4i-map-marker-4pt {
+  &:before {
+    content: $q4i-map-marker-4pt;
+  }
+}
+.q4i-warning-4pt {
+  &:before {
+    content: $q4i-warning-4pt;
+  }
+}
+.q4i-security-4pt {
+  &:before {
+    content: $q4i-security-4pt;
+  }
+}
+.q4i-ownership-4pt {
+  &:before {
+    content: $q4i-ownership-4pt;
+  }
+}
+.q4i-savedtargets-4pt {
+  &:before {
+    content: $q4i-savedtargets-4pt;
+  }
+}
+.q4i-shareholder-id-2pt {
+  &:before {
+    content: $q4i-shareholder-id-2pt;
+  }
+}
+.q4i-activity-4pt {
+  &:before {
+    content: $q4i-activity-4pt;
+  }
+}
+.q4i-conference-4pt {
+  &:before {
+    content: $q4i-conference-4pt;
+  }
+}
+.q4i-meeting-4pt {
+  &:before {
+    content: $q4i-meeting-4pt;
+  }
+}
+.q4i-note-4pt {
+  &:before {
+    content: $q4i-note-4pt;
+  }
+}
+.q4i-roadshow-4pt {
+  &:before {
+    content: $q4i-roadshow-4pt;
+  }
+}
+.q4i-itinerary-1pt {
+  &:before {
+    content: $q4i-itinerary-1pt;
+  }
+}
+.q4i-itinerary-2pt {
+  &:before {
+    content: $q4i-itinerary-2pt;
+  }
+}
+.q4i-itinerary-4pt {
+  &:before {
+    content: $q4i-itinerary-4pt;
+  }
+}
+.q4i-contact-4pt {
+  &:before {
+    content: $q4i-contact-4pt;
+  }
+}
+.q4i-fund-4pt {
+  &:before {
+    content: $q4i-fund-4pt;
+  }
+}
+.q4i-deal-1pt {
+  &:before {
+    content: $q4i-deal-1pt;
+  }
+}
+.q4i-deal-2pt {
+  &:before {
+    content: $q4i-deal-2pt;
+  }
+}
+.q4i-deal-4pt {
+  &:before {
+    content: $q4i-deal-4pt;
+  }
+}
+.q4i-institution-4pt {
+  &:before {
+    content: $q4i-institution-4pt;
+  }
+}
+.q4i-activity-calendar-2pt {
+  &:before {
+    content: $q4i-activity-calendar-2pt;
+  }
+}
+.q4i-website-2pt {
+  &:before {
+    content: $q4i-website-2pt;
+  }
+}
+.q4i-cog-4pt {
+  &:before {
+    content: $q4i-cog-4pt;
+  }
+}
+.q4i-trashbin-2pt {
+  &:before {
+    content: $q4i-trashbin-2pt;
+  }
+}
+.q4i-suggest-an-edit-2pt {
+  &:before {
+    content: $q4i-suggest-an-edit-2pt;
+  }
+}
+.q4i-utility-2pt {
+  &:before {
+    content: $q4i-utility-2pt;
+  }
+}
+.q4i-contact-list-2pt {
+  &:before {
+    content: $q4i-contact-list-2pt;
+  }
+}
+.q4i-morning-star-data-2pt {
+  &:before {
+    content: $q4i-morning-star-data-2pt;
+  }
+}
+.q4i-eod-reports-2pt {
+  &:before {
+    content: $q4i-eod-reports-2pt;
+  }
+}
+.q4i-link-4pt {
+  &:before {
+    content: $q4i-link-4pt;
+  }
+}
+.q4i-html-2pt {
+  &:before {
+    content: $q4i-html-2pt;
+  }
+}
+.q4i-table-2pt {
+  &:before {
+    content: $q4i-table-2pt;
+  }
+}
+.q4i-mobile-2pt {
+  &:before {
+    content: $q4i-mobile-2pt;
+  }
+}
+.q4i-estimates-research-2pt {
+  &:before {
+    content: $q4i-estimates-research-2pt;
+  }
+}
+.q4i-print-2pt {
+  &:before {
+    content: $q4i-print-2pt;
+  }
+}
+.q4i-piechart-2pt {
+  &:before {
+    content: $q4i-piechart-2pt;
+  }
+}
+.q4i-lightbulb-1pt {
+  &:before {
+    content: $q4i-lightbulb-1pt;
+  }
+}
+.q4i-free-1pt {
+  &:before {
+    content: $q4i-free-1pt;
+  }
+}
+.q4i-data-2pt {
+  &:before {
+    content: $q4i-data-2pt;
+  }
+}
+.q4i-data-1pt {
+  &:before {
+    content: $q4i-data-1pt;
+  }
+}
+.q4i-customer-1pt {
+  &:before {
+    content: $q4i-customer-1pt;
+  }
+}
+.q4i-closed-1pt {
+  &:before {
+    content: $q4i-closed-1pt;
+  }
+}
+.q4i-ai-2pt {
+  &:before {
+    content: $q4i-ai-2pt;
+  }
+}
+.q4i-ai-1pt {
+  &:before {
+    content: $q4i-ai-1pt;
+  }
+}
+.q4i-volatility-2pt {
+  &:before {
+    content: $q4i-volatility-2pt;
+  }
+}
+.q4i-upcoming-events-2pt {
+  &:before {
+    content: $q4i-upcoming-events-2pt;
+  }
+}
+.q4i-relative-performance-2pt {
+  &:before {
+    content: $q4i-relative-performance-2pt;
+  }
+}
+.q4i-past-events-2pt {
+  &:before {
+    content: $q4i-past-events-2pt;
+  }
+}
+.q4i-notifications-2pt {
+  &:before {
+    content: $q4i-notifications-2pt;
+  }
+}
+.q4i-note-2pt {
+  &:before {
+    content: $q4i-note-2pt;
+  }
+}
+.q4i-map-marker-2pt {
+  &:before {
+    content: $q4i-map-marker-2pt;
+  }
+}
+.q4i-expected-trading-range-2pt {
+  &:before {
+    content: $q4i-expected-trading-range-2pt;
+  }
+}
+.q4i-admin-2pt {
+  &:before {
+    content: $q4i-admin-2pt;
+  }
+}
+.q4i-activist-2pt {
+  &:before {
+    content: $q4i-activist-2pt;
+  }
+}
+.q4i-lock-2pt {
+  &:before {
+    content: $q4i-lock-2pt;
+  }
+}
+.q4i-fullscreen-4pt {
+  &:before {
+    content: $q4i-fullscreen-4pt;
+  }
+}
+.q4i-calendar-4pt {
+  &:before {
+    content: $q4i-calendar-4pt;
+  }
+}
+.q4i-add-4pt {
+  &:before {
+    content: $q4i-add-4pt;
+  }
+}
+.q4i-add-2pt {
+  &:before {
+    content: $q4i-add-2pt;
+  }
+}
+.q4i-time-4pt {
+  &:before {
+    content: $q4i-time-4pt;
+  }
+}
+.q4i-edit-2pt {
+  &:before {
+    content: $q4i-edit-2pt;
+  }
+}
+.q4i-cog-2pt {
+  &:before {
+    content: $q4i-cog-2pt;
+  }
+}
+.q4i-question-mark-2pt {
+  &:before {
+    content: $q4i-question-mark-2pt;
+  }
+}
+.q4i-sec-2pt {
+  &:before {
+    content: $q4i-sec-2pt;
+  }
+}
+.q4i-fund-2pt {
+  &:before {
+    content: $q4i-fund-2pt;
+  }
+}
+.q4i-institution-2pt {
+  &:before {
+    content: $q4i-institution-2pt;
+  }
+}
+.q4i-press-releases-2pt {
+  &:before {
+    content: $q4i-press-releases-2pt;
+  }
+}
+.q4i-releases-2pt {
+  &:before {
+    content: $q4i-releases-2pt;
+  }
+}
+.q4i-transcripts-2pt {
+  &:before {
+    content: $q4i-transcripts-2pt;
+  }
+}
+.q4i-caret-sm-left-4pt {
+  &:before {
+    content: $q4i-caret-sm-left-4pt;
+  }
+}
+.q4i-caret-sm-down-4pt {
+  &:before {
+    content: $q4i-caret-sm-down-4pt;
+  }
+}
+.q4i-caret-sm-right-4pt {
+  &:before {
+    content: $q4i-caret-sm-right-4pt;
+  }
+}
+.q4i-caret-sm-up-4pt {
+  &:before {
+    content: $q4i-caret-sm-up-4pt;
+  }
+}
+.q4i-mail-2pt {
+  &:before {
+    content: $q4i-mail-2pt;
+  }
+}
+.q4i-meeting-2pt {
+  &:before {
+    content: $q4i-meeting-2pt;
+  }
+}
+.q4i-chat-2pt {
+  &:before {
+    content: $q4i-chat-2pt;
+  }
+}
+.q4i-phone-2pt {
+  &:before {
+    content: $q4i-phone-2pt;
+  }
+}
+.q4i-hamburger-desktop-2pt {
+  &:before {
+    content: $q4i-hamburger-desktop-2pt;
+  }
+}
+.q4i-chart-2pt {
+  &:before {
+    content: $q4i-chart-2pt;
+  }
+}
+.q4i-list-2pt {
+  &:before {
+    content: $q4i-list-2pt;
+  }
+}
+.q4i-checklist-2pt {
+  &:before {
+    content: $q4i-checklist-2pt;
+  }
+}
+.q4i-team-2pt {
+  &:before {
+    content: $q4i-team-2pt;
+  }
+}
+.q4i-sentiment-2pt {
+  &:before {
+    content: $q4i-sentiment-2pt;
+  }
+}
+.q4i-webcast-2pt {
+  &:before {
+    content: $q4i-webcast-2pt;
+  }
+}
+.q4i-website-analytics-2pt {
+  &:before {
+    content: $q4i-website-analytics-2pt;
+  }
+}
+.q4i-activity-2pt {
+  &:before {
+    content: $q4i-activity-2pt;
+  }
+}
+.q4i-security-2pt {
+  &:before {
+    content: $q4i-security-2pt;
+  }
+}
+.q4i-contact-2pt {
+  &:before {
+    content: $q4i-contact-2pt;
+  }
+}
+.q4i-dashboard-2pt {
+  &:before {
+    content: $q4i-dashboard-2pt;
+  }
+}
+.q4i-events-transcripts-2pt {
+  &:before {
+    content: $q4i-events-transcripts-2pt;
+  }
+}
+.q4i-reports-2pt {
+  &:before {
+    content: $q4i-reports-2pt;
+  }
+}
+.q4i-calculator-2pt {
+  &:before {
+    content: $q4i-calculator-2pt;
+  }
+}
+.q4i-stop-watch-2pt {
+  &:before {
+    content: $q4i-stop-watch-2pt;
+  }
+}
+.q4i-lightbulb-2pt {
+  &:before {
+    content: $q4i-lightbulb-2pt;
+  }
+}
+.q4i-free-2pt {
+  &:before {
+    content: $q4i-free-2pt;
+  }
+}
+.q4i-postchat-2pt {
+  &:before {
+    content: $q4i-postchat-2pt;
+  }
+}
+.q4i-sort-2pt {
+  &:before {
+    content: $q4i-sort-2pt;
+  }
+}
+.q4i-coffee-2pt {
+  &:before {
+    content: $q4i-coffee-2pt;
+  }
+}
+.q4i-growth-2pt {
+  &:before {
+    content: $q4i-growth-2pt;
+  }
+}
+.q4i-open-1pt {
+  &:before {
+    content: $q4i-open-1pt;
+  }
+}
+.q4i-resolved-1pt {
+  &:before {
+    content: $q4i-resolved-1pt;
+  }
+}
+.q4i-total-tickets-1pt {
+  &:before {
+    content: $q4i-total-tickets-1pt;
+  }
+}
+.q4i-desktop-2pt {
+  &:before {
+    content: $q4i-desktop-2pt;
+  }
+}
+.q4i-customer-2pt {
+  &:before {
+    content: $q4i-customer-2pt;
+  }
+}
+.q4i-employee-2pt {
+  &:before {
+    content: $q4i-employee-2pt;
+  }
+}
+.q4i-blog-2pt {
+  &:before {
+    content: $q4i-blog-2pt;
+  }
+}
+.q4i-blog-fill {
+  &:before {
+    content: $q4i-blog-fill;
+  }
+}
+.q4i-moustache-2pt {
+  &:before {
+    content: $q4i-moustache-2pt;
+  }
+}
+.q4i-checkmark-2pt {
+  &:before {
+    content: $q4i-checkmark-2pt;
+  }
+}
+.q4i-arrow-down-2pt {
+  &:before {
+    content: $q4i-arrow-down-2pt;
+  }
+}
+.q4i-arrow-left-2pt {
+  &:before {
+    content: $q4i-arrow-left-2pt;
+  }
+}
+.q4i-arrow-right-2pt {
+  &:before {
+    content: $q4i-arrow-right-2pt;
+  }
+}
+.q4i-arrow-sm-down-4pt {
+  &:before {
+    content: $q4i-arrow-sm-down-4pt;
+  }
+}
+.q4i-arrow-sm-left-4pt {
+  &:before {
+    content: $q4i-arrow-sm-left-4pt;
+  }
+}
+.q4i-arrow-sm-right-4pt {
+  &:before {
+    content: $q4i-arrow-sm-right-4pt;
+  }
+}
+.q4i-arrow-sm-up-4pt {
+  &:before {
+    content: $q4i-arrow-sm-up-4pt;
+  }
+}
+.q4i-arrow-up-2pt {
+  &:before {
+    content: $q4i-arrow-up-2pt;
+  }
+}
+.q4i-close-2pt {
+  &:before {
+    content: $q4i-close-2pt;
+  }
+}
+.q4i-close-4pt {
+  &:before {
+    content: $q4i-close-4pt;
+  }
+}
+.q4i-link-2pt {
+  &:before {
+    content: $q4i-link-2pt;
+  }
+}
+.q4i-play-2pt {
+  &:before {
+    content: $q4i-play-2pt;
+  }
+}
+.q4i-drag-drop-2pt {
+  &:before {
+    content: $q4i-drag-drop-2pt;
+  }
+}
+.q4i-hamburger-q4inc-2pt {
+  &:before {
+    content: $q4i-hamburger-q4inc-2pt;
+  }
+}
+.q4i-print-4pt {
+  &:before {
+    content: $q4i-print-4pt;
+  }
+}
+.q4i-search-2pt {
+  &:before {
+    content: $q4i-search-2pt;
+  }
+}
+.q4i-logo {
+  &:before {
+    content: $q4i-logo;
+  }
+}
+.q4i-utility-4pt {
+  &:before {
+    content: $q4i-utility-4pt;
+  }
+}

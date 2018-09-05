@@ -1,0 +1,21 @@
+/**
+Mixin to style input placeholder.
+@credit: https://css-tricks.com/snippets/css/style-placeholder-text/
+
+Usage
+  input {
+    @include placeholder((text-align: right, color: black));
+  }
+*/
+
+@mixin placeholder($declarations) {
+  $prefixes: (':', ':-webkit-input-', ':-webkit-', '-moz-', ':-moz-', '-ms-input-', ':-ms-input-');
+
+  @each $prefix in $prefixes {
+    &:#{$prefix}#{'placeholder'}, :#{$prefix}#{'placeholder'} {
+      @each $property, $value in $declarations {
+        #{$property}: $value;
+      }
+    }
+  }
+}

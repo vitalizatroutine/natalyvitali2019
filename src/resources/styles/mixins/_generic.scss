@@ -1,0 +1,68 @@
+/*
+Limited width boxed layout.
+===========================================================*/
+
+@mixin boxed-layout ($max-width: $inner-max-width) {
+  margin: 0 auto;
+  max-width: $max-width;
+}
+
+
+/* Clear Fix
+============================================================================== */
+
+@mixin clearfix() {
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+/* Truncate
+============================================================================== */
+
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Link Styling
+============================================================================== */
+
+@mixin link {
+  color: $sky;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $q4-blue;
+  }
+}
+
+/* Drag and Drop Styling
+============================================================================== */
+
+@mixin draggable {
+  &:hover {
+    cursor: move;
+    cursor: -webkit-grab;
+  }
+}
+
+@mixin dragging {
+  opacity: 0.5;
+}
+
+/*  Mixin to target IE 10+
+============================================================================== */
+
+@mixin ie-fix {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}

@@ -1,0 +1,192 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/generic';
+@import '../../resources/styles/mixins/flex';
+
+@mixin dropdownTheme($textColor, $toggleColor, $backgroundColor, $expandedBackgroundColor, $borderColor, $optionHoverBackgroundColor) {
+  .dropdown {
+    &_inner, &_options, &_option {
+      background-color: $backgroundColor;
+    }
+
+    &_value, &_option {
+      color: $textColor;
+    }
+
+    &_option {
+      border-top: 1px solid $borderColor;
+    }
+
+    &_toggle {
+      color: $toggleColor;
+    }
+  }
+
+  &.dropdown--expanded {
+    .dropdown {
+      &_inner, &_options, &_option {
+        background-color: $expandedBackgroundColor;
+      }
+
+      &_option {
+        &:hover {
+          background-color: $optionHoverBackgroundColor;
+        }
+      }
+    }
+  }
+
+  &.dropdown--disabled {
+    .dropdown {
+      &_value, &_option {
+        color: rgba($textColor, 0.3);
+      }
+
+      &_toggle {
+        color: rgba($toggleColor, 0.3);
+      }
+    }
+  }
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  cursor: pointer;
+
+  &, &_inner, &_value, &_toggle, &_options, &_option {
+    transition: 0.3s ease;
+    transition-property: height, background-color, color, padding;
+  }
+
+  &_inner {
+    @include flexbox();
+    height: 40px;
+    line-height: 40px;
+    padding: 0 0 0 15px;
+    background-color: $light-grey;
+    border-radius: $border-radius-small;
+  }
+
+  &_value, &_option {
+    color: $light-slate;
+  }
+
+  &_toggle {
+    color: $rain;
+  }
+
+  &_value, &_option {
+    @include truncate();
+  }
+
+  &_value {
+    @include flex(2);
+  }
+
+  &_toggle {
+    @include flex(1);
+    max-width: 34px;
+    text-align: center;
+    font-size: $font-size-medium;
+
+    i {
+      font-size: inherit;
+    }
+  }
+
+  &_options {
+    position: absolute;
+    top: calc(100% - #{$border-radius-small * 2});
+    right: 0;
+    left: 0;
+    padding-top: 0;
+    background-color: #ddd;
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    overflow: hidden;
+  }
+
+  &_list {
+    list-style: none;
+  }
+
+  &_option {
+    display: block;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ddd;
+    border-top: 1px solid $soft-grey;
+
+    &:last-child {
+      border-bottom: 0 !important;
+      border-radius: 0 0 $border-radius-small $border-radius-small;
+    }
+  }
+
+  .react-scrollbar {
+    &_track {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &--expanded {
+    .dropdown {
+      &_inner, &_options, &_option {
+        background-color: $light-grey;
+      }
+
+      &_value, &_option {
+        color: $light-slate;
+      }
+
+      &_inner {
+        border-radius: $border-radius-small $border-radius-small 0 0;
+      }
+
+      &_options {
+        padding-top: $border-radius-small * 2;
+      }
+
+      &_option {
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+  }
+
+  &--slate {
+    @include dropdownTheme($white, $citrus, $slate, $slate, $dark-slate, $light-slate);
+  }
+
+  &--dark-slate {
+    @include dropdownTheme($white, $citrus, $dark-slate, $dark-slate, $charcoal, $raisin-black);
+  }
+
+  &--pale-grey {
+    @include dropdownTheme($light-slate, $rain, $pale-grey, $light-grey, $soft-grey, $soft-grey);
+  }
+
+  &--steel {
+    @include dropdownTheme($white, $white, $steel, $q4-blue, $ink, $ink);
+  }
+
+  &--rain {
+    @include dropdownTheme($white, $white, $rain, $steel, $q4-blue, $q4-blue);
+  }
+
+  &--q4-blue {
+    @include dropdownTheme($white, $white, $q4-blue, $ink, $deep-blue, $deep-blue);
+  }
+
+  &--ink {
+    @include dropdownTheme($white, $white, $ink, $ink, $deep-blue, $deep-blue);
+  }
+
+  &--disabled {
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,200 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/generic';
+@import '../../resources/styles/mixins/spinner';
+
+.autocomplete {
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+
+  &_inner {
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  &_value, &_input {
+    padding: 0 55px 0 15px;
+    background: $pale-grey;
+    color: $light-slate;
+  }
+
+  &_input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 55px 0 15px;
+    border: none;
+    border-radius: $border-radius-small;
+    font-family: $font-family-base;
+    font-weight: $font-weight-normal;
+    color: $light-slate;
+
+    &::placeholder {
+      font-family: $font-family-base;
+      color: $silver;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &_icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: $light-slate;
+    cursor: pointer;
+
+    i, i:before {
+      line-height: inherit;
+    }
+
+    &--disabled {
+      pointer-events: none;
+      font-size: 18px;
+    }
+  }
+
+  &_spinner {
+    @include q4i-spinner();
+
+    &:before {
+      display: block;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &_value, &_option {
+    @include truncate();
+  }
+
+  &_items {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    border-radius: 0 0 $border-radius-small $border-radius-small;
+    background-color: $silver;
+    overflow: hidden;
+  }
+
+  &_list {
+    list-style: none;
+  }
+
+  &_item, &_no-data-text, &_category-title {
+    padding: 0 15px;
+    color: $white;
+  }
+
+  &_item, &_no-data-text {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    background-color: transparent;
+  }
+
+  &_category {
+    &:first-child {
+      margin-top: $padding-vertical-xxsmall;
+    }
+
+    &:last-child {
+      margin-bottom: $padding-vertical-small;
+    }
+
+    &-title {
+      @include truncate();
+
+      i {
+        margin-right: 10px;
+      }
+
+      span {
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  &_item {
+    border-bottom: 1px solid $cold-grey;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    &--selected,
+    &:hover {
+      background-color: $cold-grey;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .react-scrollbar {
+    &_track {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &--categorized & {
+    &_item {
+      margin: 0 10px 0 30px;
+      padding: 0 8px;
+      height: 25px;
+      line-height: 25;
+      border-bottom: none;
+      border-radius: $border-radius-small;
+    }
+  }
+
+  &--loading & {
+    &_icon {
+      i {
+        display: inline-block;
+      }
+    }
+  }
+
+  &--from-top & {
+    &_items {
+      top: auto;
+      bottom: 100%;
+      border-radius: $border-radius-small $border-radius-small 0 0;
+    }
+  }
+
+  &--is-open & {
+    &_items {
+      display: block;
+    }
+  }
+
+  &--dark &, &--slate & {
+    &_value, &_input {
+      background-color: $slate;
+      color: $white;
+    }
+  }
+
+  &--white & {
+    &_value, &_input {
+      background-color: $white;
+    }
+  }
+
+  &--disabled {
+    pointer-events: none;
+  }
+}
