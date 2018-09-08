@@ -1,0 +1,34 @@
+@import '../../resources/styles/variables';
+
+.scrolling-phrase {
+  display: block;
+  padding: 20px 0;
+  font-size: 50px;
+  line-height: 70px;
+  font-weight: $font-weight-light;
+  text-align: center;
+  color: $white;
+
+  &_before-text, &_container, &_after-text {
+    display: inline-block;
+    height: 70px;
+    vertical-align: middle;
+  }
+
+  &_before-text {
+
+  }
+
+  &_container {
+    overflow: hidden;
+  }
+
+  &_inner {
+    position: relative;
+    transition: top 0.3s ease;
+  }
+
+  &_after-text {
+
+  }
+}

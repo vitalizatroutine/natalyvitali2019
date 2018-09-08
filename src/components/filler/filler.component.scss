@@ -1,0 +1,42 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/flex';
+
+.filler {
+  position: relative;
+  min-height: 500px;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(space-around);
+  background-color: #000;
+
+  &, &_image, &_text {
+    z-index: $z-index--level-two;
+  }
+
+  &_image {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    opacity: 0.2;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &_text {
+    position: relative;
+    font-size: $font-size-large;
+    font-weight: $font-weight-light;
+    color: $white;
+  }
+
+  &--medium {
+    min-height: 800px;
+  }
+
+  &--large {
+    min-height: 1200px;
+  }
+
+  &--full {
+    min-height: 100vh;
+  }
+}

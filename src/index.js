@@ -1,14 +1,17 @@
 import 'babel-polyfill';
 import React from 'react';
 import {render} from 'react-dom';
-import Root from './containers/root/root.container';
+import Modal from 'react-modal';
+import Root from './containers/Root/Root.container';
 import './resources/styles/global.css';
 
-const init = () => {
+Modal.setAppElement('#root');
+
+function init() {
     render(
-        <Root/>,
+        <Root />,
         document.getElementById('root')
     );
-};
+}
 
 init();

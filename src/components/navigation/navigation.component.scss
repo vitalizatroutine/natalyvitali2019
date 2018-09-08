@@ -1,0 +1,84 @@
+@import '../../resources/styles/variables';
+
+.navigation {
+  z-index: $z-index--level-three;
+
+  &_toggle, &_container {
+    position: absolute;
+    border-radius: $border-radius-small;
+    background-color: rgba(black, 0.6);
+  }
+
+  &_toggle, &_container {
+    position: fixed;
+    top: 20px; left: 20px;
+  }
+
+  &_toggle {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: $white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: $z-index--level-three + 1;
+  }
+
+  &_container {
+    bottom: 20px;
+    opacity: 0;
+    padding: 70px 80px 50px 70px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: $z-index--level-three;
+  }
+
+  &_list {
+    list-style: none;
+  }
+
+  &_item {
+    display: block;
+    margin: 0;
+    padding: $padding-vertical-xsmall;
+    border-radius: $border-radius-small;
+    background-color: transparent;
+    font-size: 42px;
+    line-height: 42px;
+    font-weight: $font-weight-light;
+    letter-spacing: 2px;
+    color: $white;
+    cursor: pointer;
+    transition: 0.3s ease;
+    transition-property: background-color, margin, color;
+
+    &:hover {
+      margin: 5px 0;
+      background-color: $white;
+      color: $light-slate;
+    }
+  }
+
+  &_coming-soon {
+    position: absolute;
+    bottom: 50px;
+    color: $silver;
+  }
+
+  &--open {
+    bottom: 0;
+
+    .navigation {
+      &_toggle {
+        background-color: transparent;
+      }
+
+      &_container {
+        opacity: 1;
+        pointer-events: initial;
+      }
+    }
+  }
+}

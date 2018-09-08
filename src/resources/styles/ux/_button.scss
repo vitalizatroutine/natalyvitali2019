@@ -60,20 +60,6 @@
     }
   }
 
-  &--utility {
-    padding: 0;
-    width: 36px;
-    height: 36px;
-
-    .button_icon {
-      margin-right: 0;
-      font-size: $font-size-xxlarge;
-      line-height: 36px;
-    }
-
-    @include color-attributes(transparent, $citrus, transparent, $mustard);
-  }
-
   &--rain {
     @include color-attributes($rain, $white, $steel, $white);
   }
@@ -118,10 +104,6 @@
     @include color-attributes($white, $slate, $pale-grey, $slate);
   }
 
-  &--silver {
-    @include color-attributes($silver, $white, $grey, $white);
-  }
-
   &--pale-grey {
     @include color-attributes($pale-grey, $light-slate, $soft-grey, $light-slate);
   }
@@ -136,28 +118,6 @@
     text-transform: capitalize;
 
     @include color-attributes(transparent, $silver, transparent, $white);
-  }
-
-  &--loading {
-    position: relative;
-    pointer-events: none;
-
-    &, &:focus {
-      color: transparent;
-    }
-
-    &:before {
-      content: '';
-      position: absolute;
-      top: calc(50% - 12px);
-      left: calc(50% - 12px);
-      display: block;
-      width: 24px;
-      height: 24px;
-      border: 2px solid rgba($white, 0.3);
-      border-radius: $border-radius-circle;
-      animation: loading-pulse 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
-    }
   }
 
   &:disabled,

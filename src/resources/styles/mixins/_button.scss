@@ -7,16 +7,6 @@
     color: $hover;
   }
 
-  &.button--loading {
-    &:focus {
-      background: $base-background;
-    }
-
-    &:before {
-      border-color: rgba($base, .3);
-    }
-  }
-
   &:disabled,
   &.button--disabled {
     background: $base-background;

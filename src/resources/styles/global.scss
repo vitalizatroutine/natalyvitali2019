@@ -1,6 +1,4 @@
 @import 'variables';
-@import 'fonts';
-@import 'animations';
 @import 'icons/all';
 @import 'mixins/all';
 
@@ -11,8 +9,7 @@
 }
 
 html,
-body,
-#root {
+body {
   height: 100%;
   font-family: $font-family-base;
   font-weight: $font-weight-normal;
@@ -23,12 +20,13 @@ body,
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background-color: $slate;
+}
+
 body {
   margin: 0;
-  min-width: $screen-small;
-  background-color: $slate;
-  background-size: cover;
-  overflow: hidden;
+  background-color: $black-pearl;
 }
 
 h1, h2, h3, h4 {

@@ -1,0 +1,26 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/flex';
+
+.hero-banner {
+  position: relative;
+  height: 100vh;
+  background-color: $slate;
+  @include flexbox();
+  @include align-items(center);
+  @include justify-content(space-around);
+  z-index: $z-index--level-two;
+
+  &_image {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    opacity: 0.25;
+    background-size: cover;
+    background-position: center;
+    z-index: $z-index--level-two;
+  }
+
+  .scrolling-phrase {
+    position: relative;
+    z-index: $z-index--level-two + 1;
+  }
+}

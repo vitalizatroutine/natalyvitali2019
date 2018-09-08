@@ -1,0 +1,18 @@
+@import '../../../resources/styles/variables';
+
+.rsvp {
+  position: relative;
+  z-index: $z-index--level-three;
+
+  &--fixed & {
+    &_toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  .modal {
+
+  }
+}

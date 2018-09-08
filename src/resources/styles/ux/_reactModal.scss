@@ -1,0 +1,49 @@
+.modal {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: $z-index--modal-level-one;
+
+  &_mask {
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    background-color: rgba($black-pearl, 0.85);
+    z-index: $z-index--modal-level-one + 1;
+  }
+
+  &_container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: calc(100vw - 60px);
+    max-height: calc(100vh - 60px);
+    padding: 20px;
+    background-color: $white;
+    border-radius: 5px;
+    z-index: $z-index--modal-level-one + 2;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &--open {
+    opacity: 1;
+  }
+
+  &--photo {
+    .modal {
+      &_container {
+        padding: 2px;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+.body {
+  &--modal-open {
+    overflow: hidden;
+  }
+}
