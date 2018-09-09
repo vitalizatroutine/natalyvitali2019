@@ -26,6 +26,7 @@ class SlideShowContainer extends Component {
                 api_key: API_KEY,
                 user_id: USER_ID,
                 format: 'json',
+                extras: 'url_o',
                 photoset_id: '72157699202803674',
                 nojsoncallback: 1
             }
@@ -39,7 +40,7 @@ class SlideShowContainer extends Component {
             }
 
             this.setState({
-                photos: photoset.map((photo) => photo.url_o)
+                photos: photoset.photo.map((photo) => photo.url_o)
             });
         });
     };
@@ -49,7 +50,9 @@ class SlideShowContainer extends Component {
 
         return (
             <div className='slideshow-container'>
-                <SlideShow images={photos}/>
+                {photos && photos.length > 0 && (
+                    <SlideShow images={photos}/>
+                )}
             </div>
         );
     }

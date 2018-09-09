@@ -14,7 +14,8 @@ class SlideShow extends Component {
         this.state = {
             slideShowIndex: 0,
             slideShowSrc: '',
-            loaded: false
+            loading: false,
+            initialLoad: false
         };
 
         this.handleKeyDown = this.handleKeyDown.bind(this);
@@ -44,13 +45,18 @@ class SlideShow extends Component {
         const {slideShowIndex} = this.state;
         const {images} = this.props;
 
+        this.setState({
+            loading: true
+        });
+
         const image = new Image();
         const src = images[slideShowIndex];
         image.src = src;
 
         image.onload = () => this.setState({
             slideShowSrc: src,
-            loaded: true
+            initialLoad: true,
+            loading: false
         });
     };
 
@@ -78,8 +84,12 @@ class SlideShow extends Component {
      * Handle transition to next Slide
      */
     handleNextSlide = () => {
-        const {slideShowIndex} = this.state;
+        const {loading, slideShowIndex} = this.state;
         const {images} = this.props;
+
+        if (loading) {
+            return;
+        }
 
         let newIndex = slideShowIndex + 1;
 
@@ -117,11 +127,11 @@ class SlideShow extends Component {
      */
     render() {
         const {className} = this.props;
-        const {slideShowSrc, loaded} = this.state;
+        const {slideShowSrc, initialLoad} = this.state;
 
         const baseClassName = [
             className ? `${className} slideshow` : 'slideshow',
-            loaded ? ' slideshow--visible' : ''
+            initialLoad ? ' slideshow--visible' : ''
         ].join('');
 
         return (

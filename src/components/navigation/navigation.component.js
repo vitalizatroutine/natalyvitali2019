@@ -46,6 +46,20 @@ class Navigation extends Component {
         });
     };
 
+    getItemClickFunction = ({scrollTarget, onClick}) => {
+        if (scrollTarget || !isNaN(scrollTarget)) {
+            return () => {
+                handleScroll(scrollTarget);
+                this.handleToggleNavigation();
+            }
+        } else if (onClick) {
+            return () => {
+                onClick();
+                this.handleToggleNavigation();
+            };
+        }
+    };
+
     render() {
         const {items, comingSoon, comingSoonText} = this.props;
         const {isOpen} = this.state;
@@ -63,9 +77,8 @@ class Navigation extends Component {
                 <div className='navigation_container' ref={this.containerReference}>
                     <ul className='navigation_list'>
                         {(items && items.length > 0) && items.map((item) => {
-                            const {label, scrollTarget, onClick} = item;
-                            const clickFunction = (scrollTarget || !isNaN(scrollTarget)) ? () => handleScroll(scrollTarget) : onClick;
-
+                            const {label} = item;
+                            const clickFunction = this.getItemClickFunction(item);
                             return (
                                 <li key={`navigation_${label}`} className='navigation_item' onClick={clickFunction}>{label}</li>
                             );
