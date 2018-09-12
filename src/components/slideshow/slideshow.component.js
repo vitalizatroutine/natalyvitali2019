@@ -25,7 +25,7 @@ class SlideShow extends Component {
         this.fetchImage();
 
         this.setState({
-            timer: setInterval(this.handleNextSlide.bind(this), 5000)
+            timer: setInterval(this.handleNextSlide.bind(this), this.props.transitionTime)
         });
 
         document.addEventListener('keydown', this.handleKeyDown);
@@ -42,7 +42,7 @@ class SlideShow extends Component {
      * Fetch image for Slideshow
      */
     fetchImage = () => {
-        const {slideShowIndex} = this.state;
+        const {slideShowIndex, initialLoad} = this.state;
         const {images} = this.props;
 
         this.setState({
@@ -53,11 +53,21 @@ class SlideShow extends Component {
         const src = images[slideShowIndex];
         image.src = src;
 
-        image.onload = () => this.setState({
-            slideShowSrc: src,
-            initialLoad: true,
-            loading: false
-        });
+        image.onload = () => {
+            if (initialLoad) {
+                this.setState({
+                    slideShowSrc: src,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    slideShowSrc: src,
+                    loading: false
+                }, () => {
+                    this.setState({initialLoad: true});
+                });
+            }
+        }
     };
 
     /**
@@ -69,7 +79,7 @@ class SlideShow extends Component {
 
         let newIndex = slideShowIndex - 1;
 
-        if (slideShowIndex === 0) {
+        if (newIndex <= 0) {
             newIndex = images.length;
         }
 
@@ -93,7 +103,7 @@ class SlideShow extends Component {
 
         let newIndex = slideShowIndex + 1;
 
-        if (slideShowIndex === images.length) {
+        if (newIndex >= images.length) {
             newIndex = 0;
         }
 
@@ -145,11 +155,13 @@ class SlideShow extends Component {
 
 SlideShow.propTypes = {
     className: PropTypes.string,
+    transitionTime: PropTypes.number,
     images: PropTypes.array.isRequired,
 };
 
 SlideShow.defaultProps = {
     className: '',
+    transitionTime: 5000,
     images: []
 };
 
