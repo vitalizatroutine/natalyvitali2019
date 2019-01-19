@@ -3,24 +3,39 @@
 
 .hero-banner {
   position: relative;
+  opacity: 1;
   height: 100vh;
-  background-color: $slate;
+  background-color: $midnight;
   @include flexbox();
   @include align-items(center);
   @include justify-content(space-around);
+  animation: fade-in 1s ease;
   z-index: $z-index--level-two;
 
-  &_image {
+  &_image, &_mask {
     position: absolute;
     top: 0; right: 0; bottom: 0; left: 0;
-    opacity: 0.25;
+  }
+
+  &_image {
+    opacity: 0.5;
     background-size: cover;
     background-position: center;
     z-index: $z-index--level-two;
+    transition: background-image 0.6s ease;
+  }
+
+  &_mask {
+    z-index: $z-index--level-two + 1;
+    background-color: rgba(0,0,0, 0.75);
   }
 
   .scrolling-phrase {
     position: relative;
-    z-index: $z-index--level-two + 1;
+    z-index: $z-index--level-two + 2;
+  }
+
+  &--visible {
+    opacity: 1;
   }
 }

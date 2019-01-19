@@ -1,0 +1,19 @@
+@import '../../resources/styles/variables';
+
+.stars {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+
+  &_node {
+    position: absolute;
+    opacity: 0;
+    display: block;
+    width: 1px;
+    height: 1px;
+    border-radius: 50%;
+    background-color: $white;
+    box-shadow: $blue-glow 0 0 5px 3px;
+    animation: fade-in-out 8s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+  }
+}

@@ -1,41 +1,107 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import './heroBanner.component.css';
-import ScrollingPhrase from '../scrollingPhrase/scrollingPhrase.component';
 
-class HeroBanner extends Component {
+class HeroBanner extends PureComponent {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            selectedIndex: 0
+            selectedIndex: 0,
+            imgSrc: '',
+            loading: false,
+            initialLoad: false
         };
     }
 
-    render() {
-        const {selectedIndex} = this.state;
-        const {heroes, phrases} = this.props;
+    componentDidMount() {
+        this.fetchImage();
 
-        const styles = {
-            image: {
-                backgroundImage: heroes[selectedIndex] && `url(${heroes[selectedIndex].source})`,
+        this.setState({
+            timer: setInterval(this.handleNextSlide.bind(this), this.props.transitionTime)
+        });
+    }
+
+    /**
+     * Fetch image for Banner
+     */
+    fetchImage = () => {
+        const {selectedIndex, initialLoad} = this.state;
+        const {heroes} = this.props;
+
+        if (!heroes || !heroes.length) {
+            return;
+        }
+
+        this.setState({
+            loading: true
+        });
+
+        const image = new Image();
+        const src = heroes[selectedIndex] && heroes[selectedIndex].source;
+        image.src = src;
+
+        image.onload = () => {
+            if (initialLoad) {
+                this.setState({
+                    imgSrc: src,
+                    loading: false
+                });
+            } else {
+                this.setState({
+                    imgSrc: src,
+                    loading: false
+                }, () => {
+                    this.setState({initialLoad: true});
+                });
             }
-        };
+        }
+    };
+
+    /**
+     * Handle transition to next hero image
+     */
+    handleNextSlide = () => {
+        const {loading, selectedIndex} = this.state;
+        const {heroes} = this.props;
+
+        if (loading) {
+            return;
+        }
+
+        let newIndex = selectedIndex + 1;
+
+        if (newIndex >= heroes.length) {
+            newIndex = 0;
+        }
+
+        this.setState({
+            selectedIndex: newIndex
+        }, () => {
+            this.fetchImage();
+        });
+    };
+
+    render() {
+        const {imgSrc, initialLoad} = this.state;
+        const {className, children, heroes} = this.props;
+
+        if (!heroes || !heroes.length) {
+            return null;
+        }
+
+        const baseClassName = [
+            className ? `${className} hero-banner` : 'hero-banner',
+            initialLoad ? ' hero-banner--visible' : ''
+        ].join('');
 
         return (
-            <section className='hero-banner'>
-                <div className='hero-banner_image' style={styles.image}/>
+            <section className={baseClassName}>
+                <div className='hero-banner_image' style={{backgroundImage: `url("${imgSrc}")`}}/>
+                <div className='hero-banner_mask'/>
                 <div className='hero-banner_inner'>
-                    <ScrollingPhrase
-                        phrases={phrases}
-                        beforeText={'We are'}
-                        afterText={'for life.'}
-                        colors={['#3498db', '#1abc9c', '#f1af0f', '#e74c3c', '#a4305e']}
-                        loop={true}
-                        transitionTime={2000}
-                        delay={1000}
-                    />
+                    {children}
                 </div>
             </section>
         );
@@ -43,8 +109,13 @@ class HeroBanner extends Component {
 }
 
 HeroBanner.propTypes = {
+    className: PropTypes.string,
     heroes: PropTypes.array.isRequired,
-    phrases: PropTypes.array
+    transitionTime: PropTypes.number
+};
+
+HeroBanner.defaultProps = {
+    transitionTime: 5000
 };
 
 export default HeroBanner;

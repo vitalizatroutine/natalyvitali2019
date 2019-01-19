@@ -60,7 +60,6 @@ class ScrollingPhrase extends Component {
             return null;
         }
 
-
         const innerContainer = this.innerContainer && this.innerContainer.current;
         const styles = {
             all: {
