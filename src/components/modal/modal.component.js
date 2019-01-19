@@ -17,7 +17,7 @@ class Modal extends PureComponent {
         super(props);
 
         this.state = {
-            hiding: false
+            isBeingHidden: false
         };
 
         this.appBodyContainer = document.getElementsByTagName('body')[0];
@@ -47,7 +47,7 @@ class Modal extends PureComponent {
         }
 
         if (prevProps.visible && !visible) {
-            this.handleStartHide();
+            this.handleHide();
         }
     };
 
@@ -88,23 +88,27 @@ class Modal extends PureComponent {
     };
 
     /**
-     * Handle start of Modal hiding process
+     * Handle start of Modal isBeingHidden process
      * This is done to provide a fadeout animation
      */
-    handleStartHide = (event) => {
-        const {hiding} = this.state;
+    handleStartHide = () => {
         const {onHide} = this.props;
+        const {isBeingHidden} = this.state;
 
-        if (hiding) {
+        if (isBeingHidden) {
             return;
         }
 
         this.setState({
-            hiding: true
+            isBeingHidden: true
         }, () => {
             setTimeout(() => {
-                onHide && onHide(event);
-            }, 150);
+                this.setState({
+                    isBeingHidden: false
+                });
+
+                onHide && onHide();
+            }, 350);
         });
     };
 
@@ -121,22 +125,20 @@ class Modal extends PureComponent {
      * @returns {*}
      */
     render() {
-        const {children, className, fullscreen, visible} = this.props;
-        const {hiding} = this.state;
+        const {children, className, fullscreen} = this.props;
+        const {isBeingHidden} = this.state;
 
         const baseClassName = getClassName('modal', [
             {condition: className, trueClassName: className},
-            {condition: visible, trueClassName: 'modal--visible'},
             {condition: fullscreen, trueClassName: 'modal--fullscreen'},
-            {condition: hiding, trueClassName: 'modal--hiding'}
+            {condition: isBeingHidden, trueClassName: 'modal--hiding'}
         ]);
 
         return ReactDOM.createPortal((
             <div className={baseClassName}>
                 <div className='modal_mask' onClick={this.handleStartHide}/>
-                    <div className='modal_container'>
-                        {children}
-                    </div>
+                <div className='modal_container'>
+                    {children}
                 </div>
             </div>
         ), this.modalContainer);

@@ -29,14 +29,8 @@
 
   @include buttonTheme($dark-slate, $citrus, $citrus, $dark-slate);
 
-  & + &:not(&--utility) {
-    margin-left: $padding-horizontal-xsmall;
-  }
-
-  &:hover {
-    .tooltip {
-      display: block;
-    }
+  & > * {
+    pointer-events: none;
   }
 
   &_icon {
@@ -50,10 +44,6 @@
 
     .button_icon {
       margin-right: 0;
-    }
-
-    .tooltip {
-      display: none;
     }
   }
 

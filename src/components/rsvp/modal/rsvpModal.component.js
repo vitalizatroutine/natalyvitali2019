@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import Modal from 'react-modal';
+import Button from '../../button/button.component';
+import Modal from '../../modal/modal.component';
 import './rsvpModal.component.css';
 
 class RSVP extends Component {
@@ -8,41 +9,34 @@ class RSVP extends Component {
         super(props);
 
         this.state = {
-            isOpen: false
+            isModalOpen: false
         };
     }
 
 
-    handleOpenRsvpModal = () => {
+    handleOpenModal = () => {
         this.setState({
-            isOpen: true
+            isModalOpen: true
         });
     };
 
-    handleCloseRsvpModal = () => {
+    handleCloseModal = () => {
         this.setState({
-            isOpen: false
+            isModalOpen: false
         });
     };
 
     render() {
-        const {isOpen} = this.state;
+        const {isModalOpen} = this.state;
 
         return (
-            <div className='rsvp rsvp--fixed'>
-                <div className='rsvp_toggle' onClick={this.handleOpenRsvpModal}>
-                    <button className='button button--teal button--tall'>RSVP</button>
+            <div className='rsvp'>
+                <div className='rsvp_toggle'>
+                    <Button label='RSVP' onButtonClick={this.handleOpenModal}/>
                 </div>
-                <Modal
-                    isOpen={isOpen}
-                    onRequestClose={this.handleCloseRsvpModal}
-                    portalClassName={`modal modal--general ${isOpen ? 'modal--open' : ''}`}
-                    className='modal_container'
-                    overlayClassName='modal_mask'
-                    bodyOpenClassName='body--modal-open'
-                    htmlOpenClassName='html--modal-open'
-                >
-                    <p>Rsvp</p>
+                
+                <Modal visible={isModalOpen} onHide={this.handleCloseModal}>
+                    <p>Hello</p>
                 </Modal>
             </div>
         );

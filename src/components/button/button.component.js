@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, {PureComponent, Link} from 'react';
 import PropTypes from 'prop-types';
 import {getClassName} from '../../utils/react.util';
 import './button.component.css';
@@ -13,11 +13,10 @@ class Button extends PureComponent {
      * This is done to provide a fadeout animation
      */
     handleClick = (event) => {
-        const {onClick} = this.props;
+        const {onButtonClick} = this.props;
 
         event.target && event.target.blur();
-
-        onClick && onClick(event);
+        onButtonClick && onButtonClick(event);
     };
 
     /**
@@ -25,7 +24,11 @@ class Button extends PureComponent {
      * @returns {*}
      */
     render() {
-        const {className, link, label, icon, theme, tall, wide, circle, square, invisible, hidden, disabled} = this.props;
+        const {
+            className, link, label, icon,
+            theme, tall, wide, circle, square,
+            loading, invisible, hidden, disabled
+        } = this.props;
 
         const baseClassName = getClassName('button', [
             {condition: className, trueClassName: className},
@@ -43,12 +46,12 @@ class Button extends PureComponent {
         return link ? (
             <Link className={baseClassName} to={link} onClick={this.handleClick}>
                 {icon && <i className={`button_icon ${icon}`}/> }
-                {label && <label className='button_label'>{label}</label> }
+                {label && <span className='button_label'>{label}</span> }
             </Link>
         ) : (
             <button className={baseClassName} onClick={this.handleClick}>
                 {icon && <i className={`button_icon ${icon}`}/> }
-                {label && <label className='button_label'>{label}</label> }
+                {label && <span className='button_label'>{label}</span> }
             </button>
         );
     }
@@ -112,7 +115,7 @@ Button.propTypes = {
     /**
      * A callback for when the user clicks the Button component
      */
-    onClick: PropTypes.func
+    onButtonClick: PropTypes.func.isRequired
 };
 
 Button.defaultProps = {
