@@ -4,6 +4,7 @@ import HeroBanner from '../../components/heroBanner/heroBanner.component';
 import Lights from '../../components/lights/lights.component';
 import Stars from '../../components/stars/stars.component';
 import Spinner from "../../components/spinner/spinner.component";
+import RSVP from "../../components/rsvp/modal/rsvpModal.component";
 
 class HomeContainer extends Component {
 
@@ -40,6 +41,8 @@ class HomeContainer extends Component {
                     <Lights count={15}/>
                     <Stars count={50}/>
                 </HeroBanner>
+
+                <RSVP/>
             </div>
         );
     }

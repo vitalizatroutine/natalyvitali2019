@@ -124,6 +124,11 @@ $border-radius-xxlarge: 35px;
 $border-radius-circle: 50%;
 
 
+// Box Shadow
+//-------------------------------------//
+$box-shadow--default: 0 5px 20px rgba(0, 0, 0, 0.3);
+
+
 // Form Elements
 //-------------------------------------//
 $label-height-base: 22px;
@@ -140,6 +145,12 @@ $z-index--mask: 50;
 $z-index--modal-level-one: $z-index--mask + 5;
 $z-index--modal-level-two: $z-index--mask + 10;
 $z-index--modal-level-three: $z-index--mask + 15; // used for global toast notification
+
+
+// Animations
+//-------------------------------------//
+$transition-duration--default: 0.3s;
+$transition-timing-function--default: ease;
 
 
 // Media Query Breakpoints

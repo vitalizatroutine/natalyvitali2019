@@ -1,3 +1,5 @@
+@import '../../resources/styles/variables';
+
 .modal {
   position: relative;
   opacity: 0;
@@ -39,11 +41,5 @@
         border-radius: 0;
       }
     }
-  }
-}
-
-.body {
-  &--modal-open {
-    overflow: hidden;
   }
 }

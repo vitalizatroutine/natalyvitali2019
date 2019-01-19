@@ -1,0 +1,71 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/animations';
+
+@mixin popoverTheme($backgroundColor, $textColor) {
+  .popover {
+    &_inner {
+      background-color: $backgroundColor;
+      color: $textColor;
+    }
+  }
+}
+
+.popover {
+  &_mask, &_anchor {
+    position: fixed;
+    animation-duration: 0.1s;
+    animation-timing-function: ease;
+    z-index: $z-index--modal-level-one;
+  }
+
+  &_mask {
+    top: 0; right: 0; bottom: 0; left: 0;
+    animation-name: fade-in;
+  }
+
+  &_anchor {
+    animation-name: pop-in;
+  }
+
+  &_inner {
+    position: absolute;
+    padding: $padding-vertical-small $padding-horizontal-small;
+    border-radius: $border-radius-small;
+    background-color: $light-grey;
+    box-shadow: $box-shadow--default;
+  }
+
+  &--hiding & {
+    &_mask, &_anchor {
+      animation-fill-mode: forwards;
+    }
+
+    &_mask {
+      animation-name: fade-out;
+    }
+
+    &_anchor {
+      animation-name: pop-out;
+    }
+  }
+
+  &--white {
+    @include popoverTheme($white, $light-slate);
+  }
+
+  &--light-grey {
+    @include popoverTheme($light-grey, $light-slate);
+  }
+
+  &--slate {
+    @include popoverTheme($slate, $white);
+  }
+
+  &--rain {
+    @include popoverTheme($rain, $white);
+  }
+
+  &--citrus {
+    @include popoverTheme($citrus, $dark-slate);
+  }
+}
