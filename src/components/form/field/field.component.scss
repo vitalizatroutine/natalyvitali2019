@@ -1,0 +1,63 @@
+@import '../../../resources/styles/variables';
+
+.field {
+  display: inline-block;
+  vertical-align: top;
+
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  &_label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+
+  &_input {
+    display: inline-block;
+    width: 100%;
+    height: $input-height-base;
+    padding: 0 15px;
+    border: none;
+    background: $pale-grey;
+    font-family: $font-family-base;
+    font-weight: $font-weight-normal;
+    color: $light-slate;
+    line-height: $input-height-base;
+
+    &::placeholder {
+      font-family: $font-family-base;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:read-only {
+      color: $silver;
+    }
+
+    &[type='number']::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  textarea {
+    min-height: 100px;
+    max-height: 300px;
+    resize: vertical;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &--half {
+    width: 50%;
+  }
+
+  &--third {
+    width: 33.333%;
+  }
+}
