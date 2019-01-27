@@ -66,6 +66,14 @@
     }
   }
 
+  &--wide {
+    width: 100px;
+
+    & + & {
+      margin-left: $padding-horizontal-small;
+    }
+  }
+
   &--rain {
     @include buttonTheme($rain, $white, $steel, $white);
   }

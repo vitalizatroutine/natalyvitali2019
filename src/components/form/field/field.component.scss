@@ -3,6 +3,7 @@
 .field {
   display: inline-block;
   vertical-align: top;
+  text-align: left;
 
   &:not(:last-child) {
     margin-bottom: 20px;

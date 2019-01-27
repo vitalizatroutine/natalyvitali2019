@@ -30,7 +30,7 @@ class Field extends PureComponent {
             value
         });
 
-        onChange && onChange(value, event);
+        onChange && onChange(event, value);
     };
 
     /**
