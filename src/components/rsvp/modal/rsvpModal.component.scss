@@ -1,12 +1,53 @@
 @import '../../../resources/styles/variables';
 
 .rsvp {
-  position: relative;
   z-index: $z-index--level-three;
 
-    &_toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
+  &_toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+  }
+
+  &_inner {
+    max-width: 500px;
+    padding: 40px 30px 50px;
+    background-color: $white;
+
+    .field {
+      &:nth-child(even):not(.field--full) {
+        padding-left: 10px;
+      }
+
+      &:nth-child(odd):not(.field--full) {
+        padding-right: 10px;
+      }
     }
+  }
+
+  &_header, &_footer {
+    text-align: center;
+  }
+
+  &_title {
+    font-size: $font-size-large;
+    color: $dark-slate;
+    margin-bottom: $padding-vertical-xsmall;
+  }
+
+  &_subtitle {
+    font-size: $font-size-small;
+    font-style: italic;
+  }
+
+  &_spacer {
+    width: 100px;
+    height: 1px;
+    margin: 20px auto 40px;
+    background-color: $light-grey;
+  }
+
+  &_footer {
+    padding: 20px 0 0;
+  }
 }

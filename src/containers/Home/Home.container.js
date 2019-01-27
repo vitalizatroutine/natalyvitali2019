@@ -25,6 +25,10 @@ class HomeContainer extends Component {
         });
     }
 
+    handleRSVPSubmit = (form) => {
+        console.log('RSVP Form Submition', form);
+    };
+
     render() {
         const {heroes} = this.state;
         const noData = !heroes.length;
@@ -42,7 +46,10 @@ class HomeContainer extends Component {
                     <Stars count={50}/>
                 </HeroBanner>
 
-                <RSVP/>
+                <RSVP
+                    initialIsOpen={true}
+                    onSubmit={this.handleRSVPSubmit}
+                />
             </div>
         );
     }
