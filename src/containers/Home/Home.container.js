@@ -47,7 +47,6 @@ class HomeContainer extends Component {
                 </HeroBanner>
 
                 <RSVP
-                    initialIsOpen={true}
                     onSubmit={this.handleRSVPSubmit}
                 />
             </div>

@@ -81,86 +81,93 @@ class RSVP extends Component {
                 </div>
                 
                 <Modal visible={isModalOpen} onHide={this.handleModalClose}>
-                    <section className='rsvp_inner'>
-                        <header className='rsvp_header'>
-                            <h2 className='rsvp_title'>RSVP</h2>
-                            <h3 className='rsvp_subtitle'>Join us on September 7th, 2019, our special day.</h3>
-                            <div className='rsvp_spacer'/>
-                        </header>
-                        <div className='rsvp_form'>
-                            <Field
-                                type='text'
-                                size='half'
-                                label='First Name'
-                                id='rsvp_first_name'
-                                name='first_name'
-                                placeholder='John'
-                                onChange={this.handleFieldChange}
-                            />
-                            <Field
-                                type='text'
-                                size='half'
-                                label='Family Name'
-                                id='rsvp_last_name'
-                                name='last_name'
-                                placeholder='Wick'
-                                onChange={this.handleFieldChange}
-                            />
-                            <Field
-                                type='number'
-                                size='half'
-                                label='Part Size'
-                                id='rsvp_party-size'
-                                name='party_size'
-                                placeholder='Specify amount'
-                                onChange={this.handleFieldChange}
-                            />
-                            <Field
-                                type='text'
-                                size='half'
-                                label='Email'
-                                id='rsvp_email'
-                                name='email'
-                                placeholder='bearded_assass1n@gmail.com'
-                                onChange={this.handleFieldChange}
-                            />
-                            <Field
-                                type='text'
-                                size='full'
-                                label='Song Request(s)'
-                                id='rsvp_song_request'
-                                name='song_request'
-                                placeholder='J.Cole - Love Yourz'
-                                onChange={this.handleFieldChange}
-                            />
-                            <Field
-                                type='textarea'
-                                size='full'
-                                label='Leave a Note'
-                                id='rsvp_note'
-                                name='note'
-                                placeholder='I am allergic to...'
-                                onChange={this.handleFieldChange}
-                            />
+                    <div className='rsvp_wrap'>
+                        <div className='rsvp_envelope-back'/>
+                        <div className='rsvp_envelope-view'>
+                            <section className='rsvp_letter'>
+                                <header className='rsvp_header'>
+                                    <h2 className='rsvp_title'>RSVP</h2>
+                                    <h3 className='rsvp_subtitle'>Join us on September 7th, 2019, our special day.</h3>
+                                    <div className='rsvp_spacer'/>
+                                </header>
+                                <div className='rsvp_form'>
+                                    <Field
+                                        type='text'
+                                        size='half'
+                                        label='First Name'
+                                        id='rsvp_first_name'
+                                        name='first_name'
+                                        placeholder='John'
+                                        onChange={this.handleFieldChange}
+                                    />
+                                    <Field
+                                        type='text'
+                                        size='half'
+                                        label='Family Name'
+                                        id='rsvp_last_name'
+                                        name='last_name'
+                                        placeholder='Wick'
+                                        onChange={this.handleFieldChange}
+                                    />
+                                    <Field
+                                        type='number'
+                                        size='half'
+                                        label='Part Size'
+                                        id='rsvp_party-size'
+                                        name='party_size'
+                                        placeholder='Specify amount'
+                                        onChange={this.handleFieldChange}
+                                    />
+                                    <Field
+                                        type='text'
+                                        size='half'
+                                        label='Email'
+                                        id='rsvp_email'
+                                        name='email'
+                                        placeholder='bearded_assass1n@gmail.com'
+                                        onChange={this.handleFieldChange}
+                                    />
+                                    <Field
+                                        type='text'
+                                        size='full'
+                                        label='Song Request(s)'
+                                        id='rsvp_song_request'
+                                        name='song_request'
+                                        placeholder='J.Cole - Love Yourz'
+                                        onChange={this.handleFieldChange}
+                                    />
+                                    <Field
+                                        type='textarea'
+                                        size='full'
+                                        label='Leave a Note'
+                                        id='rsvp_note'
+                                        name='note'
+                                        placeholder='I am allergic to...'
+                                        onChange={this.handleFieldChange}
+                                    />
+                                </div>
+                                <footer className='rsvp_footer'>
+                                    <Button
+                                        theme='transparent'
+                                        tall={true}
+                                        wide={true}
+                                        label='Cancel'
+                                        onButtonClick={this.handleModalClose}
+                                    />
+                                    <Button
+                                        theme='pale-grey'
+                                        tall={true}
+                                        wide={true}
+                                        label='Submit'
+                                        disabled={!isValid}
+                                        onButtonClick={this.handleSubmit}
+                                    />
+                                </footer>
+                            </section>
                         </div>
-                        <footer className='rsvp_footer'>
-                            <Button
-                                theme='transparent'
-                                tall={true}
-                                wide={true}
-                                label='Cancel'
-                                onButtonClick={this.handleModalClose}
-                            />
-                            <Button
-                                theme='pale-grey'
-                                tall={true}
-                                wide={true}
-                                label='Submit'
-                                disabled={!isValid}
-                                onButtonClick={this.handleSubmit}
-                            />
-                        </footer>
-                    </section>
+                        <div className='rsvp_envelope-flap rsvp_envelope-flap--bottom'/>
+                        <div className='rsvp_envelope-flap rsvp_envelope-flap--top'/>
+                    </div>
                 </Modal>
             </div>
         );

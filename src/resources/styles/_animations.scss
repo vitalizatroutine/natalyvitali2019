@@ -43,3 +43,14 @@
     opacity: 0;
   }
 }
+
+@keyframes slide-in--from-bottom {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

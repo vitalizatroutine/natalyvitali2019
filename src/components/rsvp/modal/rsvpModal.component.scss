@@ -1,6 +1,96 @@
 @import '../../../resources/styles/variables';
 
+$envelope-width: 500px;
+$envelope-height: 325px;
+$paper-height: $envelope-height * 2;
+
+@keyframes wrap-animation {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY($envelope-height / 2);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY($envelope-height / 2);
+    opacity: 1;
+  }
+  75% {
+    transform: translateY($envelope-height / 2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes view-animation {
+  0% {
+    height: $envelope-height;
+  }
+  75% {
+    height: $paper-height;
+  }
+  100% {
+    height: $paper-height;
+  }
+}
+
+@keyframes back-flap-animation {
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes front-flap-animation {
+  0% {
+    background-color: lighten($pale-grey, 5%);
+    transform: rotateX(0deg) translateY(0);
+    z-index: 4;
+  }
+  33% {
+    background-color: $pale-grey;
+    transform: rotateX(180deg) translateY(0);
+    z-index: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    background-color: $pale-grey;
+    transform: rotateX(180deg) translateY(-100vh);
+    z-index: 1;
+  }
+}
+
+@keyframes front-flap-psuedos-animation {
+  0% {
+    opacity: 1;
+  }
+  33% {
+    border-color: $pale-grey transparent transparent transparent;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .rsvp {
+  position: relative;
   z-index: $z-index--level-three;
 
   &_toggle {
@@ -9,8 +99,105 @@
     right: 20px;
   }
 
-  &_inner {
-    max-width: 500px;
+  &_wrap {
+    position: relative;
+    max-width: $envelope-width;
+    height: $paper-height;
+    animation: wrap-animation 4s ease-in-out;
+  }
+
+  &_envelope {
+    &-view {
+      position: relative;
+      height: $envelope-height;
+      overflow: hidden;
+      animation: view-animation 2s ease-in-out 2s forwards;
+      z-index: 2;
+    }
+
+    &-back, &-flap {
+      position: absolute;
+    }
+
+    &-back, &-flap--bottom {
+      animation: back-flap-animation 2s ease-in-out 2s forwards;
+    }
+
+    &-flap {
+      &--top:before,
+      &--top:after,
+      &--bottom:before,
+      &--bottom:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+      }
+
+      &--top {
+        top: 0; right: 0;
+        left: 0;
+        height: $envelope-height / 5;
+        background-color: lighten($pale-grey, 5%);
+        animation: 3s front-flap-animation ease-in-out 1s forwards;
+        transform-origin: top;
+        z-index: 4;
+
+        &:before, &:after {
+          top: 100%;
+          animation: 3s front-flap-psuedos-animation ease-in-out 1s forwards;
+        }
+
+        &:before {
+          border-width: ($envelope-height / 2 + 5) ($envelope-width / 2) 0 ($envelope-width / 2);
+          border-color: $pale-grey transparent transparent transparent;
+        }
+
+        &:after {
+          border-width: ($envelope-height / 2) ($envelope-width / 2) 0 ($envelope-width / 2);
+          border-color: lighten($pale-grey, 5%) transparent transparent transparent;
+        }
+      }
+
+      &--bottom {
+        top: 25%; right: 0;
+        bottom: $envelope-height; left: 0;
+        background-color: lighten($pale-grey, 3%);
+        z-index: 3;
+
+        &:before, &:after {
+          bottom: 100%;
+        }
+
+        &:before {
+          left: 0;
+          border-width: ($envelope-height / 2) 0 0 ($envelope-width / 2);
+          border-color: transparent transparent transparent lighten($pale-grey, 3%);
+        }
+
+        &:after {
+          right: 0;
+          border-width: 0 0 ($envelope-height / 2) ($envelope-width / 2);
+          border-color: transparent transparent lighten($pale-grey, 3%) transparent;
+        }
+      }
+    }
+
+    &-back {
+      top: 0; right: 0;
+      bottom: 50%; left: 0;
+      background-color: $pale-grey;
+      z-index: 1;
+    }
+
+    &-view, &-back, &-flap {
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &_letter {
+    margin: 20px;
     padding: 40px 30px 50px;
     background-color: $white;
 
