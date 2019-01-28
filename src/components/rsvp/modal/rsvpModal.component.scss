@@ -190,10 +190,6 @@ $paper-height: $envelope-height * 2;
       background-color: $pale-grey;
       z-index: 1;
     }
-
-    &-view, &-back, &-flap {
-      animation-fill-mode: forwards;
-    }
   }
 
   &_letter {
