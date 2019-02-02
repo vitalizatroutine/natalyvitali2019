@@ -12,6 +12,8 @@ class HomeContainer extends Component {
         super(props);
 
         this.state = {
+            isRSVPModalOpen: false,
+
             heroes: [],
             phrases: ['co-workers', 'best-friends', 'pranksters', 'partners']
         };
@@ -29,8 +31,20 @@ class HomeContainer extends Component {
         console.log('RSVP Form Submition', form);
     };
 
+    handleRSVPModalOpen = () => {
+        this.setState({
+            isRSVPModalOpen: true
+        });
+    };
+
+    handleRSVPModalClose = () => {
+        this.setState({
+            isRSVPModalOpen: false
+        });
+    };
+
     render() {
-        const {heroes} = this.state;
+        const {isRSVPModalOpen, heroes} = this.state;
         const noData = !heroes.length;
 
         if (noData) {
@@ -42,11 +56,15 @@ class HomeContainer extends Component {
         return (
             <div className='home-container'>
                 <HeroBanner heroes={heroes}>
-                    <Lights count={15}/>
-                    <Stars count={50}/>
+                    <Lights count={isRSVPModalOpen ? 0 : 10}/>
+                    <Stars count={isRSVPModalOpen ? 0 : 30}/>
                 </HeroBanner>
 
+
+
                 <RSVP
+                    onModalOpen={this.handleRSVPModalOpen}
+                    onModalClose={this.handleRSVPModalClose}
                     onSubmit={this.handleRSVPSubmit}
                 />
             </div>

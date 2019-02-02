@@ -11,9 +11,8 @@
     display: block;
     width: 1px;
     height: 1px;
-    border-radius: 50%;
     background-color: $white;
-    box-shadow: $blue-glow 0 0 5px 3px;
+    box-shadow: rgba($blue-glow, 0.2) 0 0 5px 3px;
     animation: fade-in-out 8s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
   }
 }

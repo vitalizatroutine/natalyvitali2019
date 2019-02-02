@@ -25,15 +25,23 @@ class RSVP extends Component {
     }
     
     handleModalOpen = () => {
+        const {onModalOpen} = this.props;
+
         this.setState({
             isModalOpen: true
         });
+
+        onModalOpen && onModalOpen();
     };
 
     handleModalClose = () => {
+        const {onModalClose} = this.props;
+
         this.setState({
             isModalOpen: false
         });
+
+        onModalClose && onModalClose();
     };
 
     handleFieldChange = (event, value) => {
@@ -176,6 +184,8 @@ class RSVP extends Component {
 
 RSVP.propTypes = {
     initialIsOpen: PropTypes.bool,
+    onModalOpen: PropTypes.func,
+    onModalClose: PropTypes.func,
     onSubmit: PropTypes.func.isRequired
 };
 
