@@ -15,15 +15,15 @@
     animation: fade-in-out 8s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
 
     &--blue {
-      box-shadow: rgba($blue-glow, 0.2) 0 0 35vh 40vh;
+      box-shadow: rgba($blue-glow, 0.15) 0 0 35vh 40vh;
     }
 
     &--pink {
-      box-shadow: rgba($cream-glow, 0.2) 0 0 35vh 40vh;
+      box-shadow: rgba($pink-glow, 0.15) 0 0 35vh 40vh;
     }
 
     &--gold {
-      box-shadow: rgba($cream-glow, 0.2) 0 0 35vh 40vh;
+      box-shadow: rgba($cream-glow, 0.1) 0 0 35vh 40vh;
     }
   }
 }
