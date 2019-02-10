@@ -1,0 +1,71 @@
+@import '../../resources/styles/variables';
+
+$block-size: 50px !default;
+
+.wedding-timer {
+  position: fixed;
+  bottom: 0;
+  left: 15vw;
+  width: $block-size * 3;
+  z-index: $z-index--level-three;
+
+  &_inner {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  &_day {
+    &-list {
+      display: flex;
+      width: $block-size * 3;
+      list-style: none;
+    }
+
+    &-block {
+      display: block;
+      flex: 1;
+      width: $block-size;
+      line-height: $block-size;
+      font-size: $font-size-large;
+      background-color: white;
+      text-align: center;
+
+      &:not(:last-child) {
+        border-right: 1px solid $soft-grey;
+      }
+
+      &:first-child {
+        border-radius: $border-radius-small 0 0 0;
+      }
+
+      &:last-child {
+        border-radius: 0 $border-radius-small 0 0;
+      }
+    }
+  }
+
+  &_message {
+    width: 100%;
+    height: $block-size;
+    background-color: $dark-slate;
+    border-radius: $border-radius-small $border-radius-small 0 0;
+    color: white;
+    text-align: center;
+  }
+
+  &_text {
+    display: inline-block;
+    font-family: $font-family-fancy;
+    line-height: $block-size;
+    vertical-align: middle;
+
+    &--large {
+      margin-left: 15px;
+      font-family: $font-family-base;
+      font-size: $font-size-icon;
+      text-transform: uppercase;
+    }
+  }
+}
