@@ -11,13 +11,13 @@
     padding: 0 15px;
     border: none;
     background: $pale-grey;
-    font-family: $font-family-base;
+    font-family: $font-family--base;
     font-weight: $font-weight-normal;
     color: $light-slate;
     line-height: $input-height-base;
 
     &::placeholder {
-      font-family: $font-family-base;
+      font-family: $font-family--base;
     }
 
     &:focus {
@@ -40,7 +40,7 @@
     padding: $padding-vertical-xsmall $padding-horizontal-xsmall;
     background-color: $q4-blue;
     border-radius: 0 0 $border-radius-small $border-radius-small;
-    font-family: $font-family-base;
+    font-family: $font-family--base;
     font-size: $font-size-base;
     line-height: $line-height-base;
     text-align: center;

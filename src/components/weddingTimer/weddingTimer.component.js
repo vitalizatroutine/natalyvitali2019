@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import moment from 'moment';
-import PropTypes from 'prop-types';
 import './weddingTimer.component.css';
 
 class WeddingTimer extends PureComponent {
@@ -57,8 +56,5 @@ class WeddingTimer extends PureComponent {
         );
     }
 }
-
-WeddingTimer.propTypes = {
-};
 
 export default WeddingTimer;

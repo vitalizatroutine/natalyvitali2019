@@ -27,7 +27,7 @@
   transition: 0.3s ease;
   cursor: pointer;
 
-  @include buttonTheme($dark-slate, $citrus, $citrus, $dark-slate);
+  @include buttonTheme($rosewood, $white, $rosegold, $slate);
 
   & > * {
     pointer-events: none;
@@ -74,52 +74,12 @@
     }
   }
 
-  &--rain {
-    @include buttonTheme($rain, $white, $steel, $white);
-  }
-
-  &--steel {
-    @include buttonTheme($steel, $white, $q4-blue, $white);
-  }
-
-  &--q4-blue {
-    @include buttonTheme($q4-blue, $white, $deep-blue, $white);
-  }
-
-  &--ink {
-    @include buttonTheme($ink, $white, $midnight, $white);
-  }
-
-  &--spice {
-    @include buttonTheme($spice, $white, $cherry, $white);
-  }
-
-  &--citrus {
-    @include buttonTheme($citrus, $dark-slate, $mustard, $dark-slate);
-  }
-
-  &--slate {
-    @include buttonTheme($slate, $citrus, $mustard, $dark-slate);
-  }
-
-  &--charcoal {
-    @include buttonTheme($charcoal, $citrus, $citrus, $dark-slate);
-  }
-
-  &--black-smoke {
-    @include buttonTheme($black-smoke, $citrus, $citrus, $dark-slate);
-  }
-
-  &--black-pearl {
-    @include buttonTheme($black-pearl, $white, $charcoal, $citrus);
+  &--midnight {
+    @include buttonTheme($midnight, $white, $slate, $white);
   }
 
   &--white {
     @include buttonTheme($white, $slate, $pale-grey, $slate);
-  }
-
-  &--pale-grey {
-    @include buttonTheme($pale-grey, $light-slate, $soft-grey, $light-slate);
   }
 
   &--shaded {
@@ -131,7 +91,7 @@
     padding: 0 $padding-horizontal-xsmall;
     text-transform: capitalize;
 
-    @include buttonTheme(transparent, $silver, transparent, $white);
+    @include buttonTheme(transparent, $light-slate, transparent, $white);
   }
 
   &:disabled,

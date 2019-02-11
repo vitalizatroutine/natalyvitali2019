@@ -3,6 +3,7 @@
 $envelope-width: 500px;
 $envelope-height: 325px;
 $paper-height: $envelope-height * 2;
+$paper-color: $rosewood;
 
 @keyframes wrap-animation {
   0% {
@@ -54,12 +55,12 @@ $paper-height: $envelope-height * 2;
 
 @keyframes front-flap-animation {
   0% {
-    background-color: lighten($pale-grey, 5%);
+    background-color: lighten($paper-color, 5%);
     transform: rotateX(0deg) translateY(0);
     z-index: 4;
   }
   33% {
-    background-color: $pale-grey;
+    background-color: $paper-color;
     transform: rotateX(180deg) translateY(0);
     z-index: 1;
   }
@@ -68,7 +69,7 @@ $paper-height: $envelope-height * 2;
   }
   100% {
     opacity: 0;
-    background-color: $pale-grey;
+    background-color: $paper-color;
     transform: rotateX(180deg) translateY(-100vh);
     z-index: 1;
   }
@@ -79,7 +80,7 @@ $paper-height: $envelope-height * 2;
     opacity: 1;
   }
   33% {
-    border-color: $pale-grey transparent transparent transparent;
+    border-color: $paper-color transparent transparent transparent;
   }
   90% {
     opacity: 1;
@@ -139,7 +140,7 @@ $paper-height: $envelope-height * 2;
         top: 0; right: 0;
         left: 0;
         height: $envelope-height / 5;
-        background-color: lighten($pale-grey, 5%);
+        background-color: lighten($paper-color, 5%);
         animation: 3s front-flap-animation ease-in-out 1s forwards;
         transform-origin: top;
         z-index: 4;
@@ -151,19 +152,19 @@ $paper-height: $envelope-height * 2;
 
         &:before {
           border-width: ($envelope-height / 2 + 5) ($envelope-width / 2) 0 ($envelope-width / 2);
-          border-color: $pale-grey transparent transparent transparent;
+          border-color: $paper-color transparent transparent transparent;
         }
 
         &:after {
           border-width: ($envelope-height / 2) ($envelope-width / 2) 0 ($envelope-width / 2);
-          border-color: lighten($pale-grey, 5%) transparent transparent transparent;
+          border-color: lighten($paper-color, 5%) transparent transparent transparent;
         }
       }
 
       &--bottom {
         top: 25%; right: 0;
         bottom: $envelope-height; left: 0;
-        background-color: lighten($pale-grey, 3%);
+        background-color: lighten($paper-color, 3%);
         z-index: 3;
 
         &:before, &:after {
@@ -173,13 +174,13 @@ $paper-height: $envelope-height * 2;
         &:before {
           left: 0;
           border-width: ($envelope-height / 2) 0 0 ($envelope-width / 2);
-          border-color: transparent transparent transparent lighten($pale-grey, 3%);
+          border-color: transparent transparent transparent lighten($paper-color, 3%);
         }
 
         &:after {
           right: 0;
           border-width: 0 0 ($envelope-height / 2) ($envelope-width / 2);
-          border-color: transparent transparent lighten($pale-grey, 3%) transparent;
+          border-color: transparent transparent lighten($paper-color, 3%) transparent;
         }
       }
     }
@@ -187,7 +188,7 @@ $paper-height: $envelope-height * 2;
     &-back {
       top: 0; right: 0;
       bottom: 50%; left: 0;
-      background-color: $pale-grey;
+      background-color: $paper-color;
       z-index: 1;
     }
   }

@@ -28,12 +28,12 @@
     padding: 0 55px 0 15px;
     border: none;
     border-radius: $border-radius-small;
-    font-family: $font-family-base;
+    font-family: $font-family--base;
     font-weight: $font-weight-normal;
     color: $light-slate;
 
     &::placeholder {
-      font-family: $font-family-base;
+      font-family: $font-family--base;
       color: $silver;
     }
 

@@ -4,6 +4,7 @@
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   overflow: hidden;
+  pointer-events: none;
 
   &_node {
     position: absolute;
@@ -19,7 +20,7 @@
     }
 
     &--pink {
-      box-shadow: rgba($pink-glow, 0.15) 0 0 35vh 40vh;
+      box-shadow: rgba($pale-pink, 0.15) 0 0 35vh 40vh;
     }
 
     &--gold {

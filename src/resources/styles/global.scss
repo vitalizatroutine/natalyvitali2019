@@ -12,7 +12,7 @@
 html,
 body {
   height: 100%;
-  font-family: $font-family-base;
+  font-family: $font-family--base;
   font-weight: $font-weight-normal;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -27,7 +27,7 @@ html {
 
 body {
   margin: 0;
-  background-color: $black-pearl;
+  background-color: $midnight;
 }
 
 h1, h2, h3, h4 {
@@ -52,7 +52,7 @@ a {
 }
 
 input, textarea, button {
-  font-family: $font-family-base;
+  font-family: $font-family--base;
   font-size: $font-size-base;
 }
 

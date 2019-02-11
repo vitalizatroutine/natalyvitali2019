@@ -5,10 +5,23 @@ $contain-width: 1280px;
 
 // Colours
 //-------------------------------------//
-$midnight: #05090f;
+$midnight: #080F0F;
+$tyrian: #6B0B29;
+$rosewood: #600A0D;
+$rosegold: #FECBC0;
+$pale-pink: #FDDCD7;
+
 $blue-glow: #c9f4f9;
 $cream-glow: #f4f9c9;
-$pink-glow: #f9c9ef;
+
+$slate: #2a3035;
+$light-slate: #545b62;
+$soft-grey: #e0e0e0;
+$light-grey: #eeeeee;
+$pale-grey: #f1f1f1;
+$white: #ffffff;
+
+// Legacy Colours
 $deep-blue: #0A457C;
 $ink: #10528f;
 $q4-blue: #0f5ca3;
@@ -38,18 +51,6 @@ $black-smoke: #121517;
 $charcoal: #1a1d21;
 $raisin-black: #1f2327;
 $dark-slate: #22272b;
-$slate: #2a3035;
-$titanium: #373B41;
-$light-slate: #545b62;
-$grey: #646d75;
-$cold-grey: #858e93;
-$silver: #939ba0;
-$soft-grey: #e0e0e0;
-$light-grey: #eeeeee;
-$pale-grey: #f1f1f1;
-$muted-grey: #f7f7f7;
-$white: #ffffff;
-
 
 // Transparent Colours
 //-------------------------------------//
@@ -86,8 +87,9 @@ $padding-horizontal-xxsmall: 4px;
 
 // Fonts and Line Heights
 //-------------------------------------//
-$font-family-base: 'Open Sans', sans-serif;
-$font-family-fancy: 'Shadows Into Light Two', cursive;
+$font-family--base: 'Open Sans', sans-serif;
+$font-family--cursive: 'Great Vibes', cursive;
+$font-family--serif: 'Playfair Display', serif;
 
 $font-weight-light: 300;
 $font-weight-normal: 400;

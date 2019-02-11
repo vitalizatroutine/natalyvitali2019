@@ -22,13 +22,13 @@
     padding: 0 15px;
     border: none;
     background: $pale-grey;
-    font-family: $font-family-base;
+    font-family: $font-family--base;
     font-weight: $font-weight-normal;
     color: $light-slate;
     line-height: $input-height-base;
 
     &::placeholder {
-      font-family: $font-family-base;
+      font-family: $font-family--base;
     }
 
     &:focus {

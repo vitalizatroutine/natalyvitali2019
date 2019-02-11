@@ -61,7 +61,7 @@ class HomeContainer extends Component {
                     <Stars count={isRSVPModalOpen ? 0 : 30}/>
                 </HeroBanner>
 
-                <WeddingTimer/>
+                {/*<WeddingTimer/>*/}
 
                 <RSVP
                     onModalOpen={this.handleRSVPModalOpen}

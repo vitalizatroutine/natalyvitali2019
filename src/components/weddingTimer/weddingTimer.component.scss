@@ -57,13 +57,13 @@ $block-size: 50px !default;
 
   &_text {
     display: inline-block;
-    font-family: $font-family-fancy;
+    font-family: $font-family--cursive;
     line-height: $block-size;
     vertical-align: middle;
 
     &--large {
       margin-left: 15px;
-      font-family: $font-family-base;
+      font-family: $font-family--base;
       font-size: $font-size-icon;
       text-transform: uppercase;
     }
