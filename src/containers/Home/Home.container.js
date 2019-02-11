@@ -5,7 +5,7 @@ import Lights from '../../components/lights/lights.component';
 import Stars from '../../components/stars/stars.component';
 import Spinner from '../../components/spinner/spinner.component';
 import RSVP from '../../components/rsvp/modal/rsvpModal.component';
-import WeddingTimer from '../../components/weddingTimer/weddingTimer.component';
+// import WeddingTimer from '../../components/weddingTimer/weddingTimer.component';
 
 class HomeContainer extends Component {
 
