@@ -5,7 +5,6 @@ import Lights from '../../components/lights/lights.component';
 import Stars from '../../components/stars/stars.component';
 import Spinner from '../../components/spinner/spinner.component';
 import RSVP from '../../components/rsvp/modal/rsvpModal.component';
-// import WeddingTimer from '../../components/weddingTimer/weddingTimer.component';
 
 class HomeContainer extends Component {
 
@@ -60,8 +59,6 @@ class HomeContainer extends Component {
                     <Lights count={isRSVPModalOpen ? 0 : 10}/>
                     <Stars count={isRSVPModalOpen ? 0 : 30}/>
                 </HeroBanner>
-
-                {/*<WeddingTimer/>*/}
 
                 <RSVP
                     onModalOpen={this.handleRSVPModalOpen}

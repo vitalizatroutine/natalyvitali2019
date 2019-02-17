@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import PropType from 'prop-types';
 import moment from 'moment';
 import './weddingTimer.component.css';
 
@@ -41,6 +42,12 @@ class WeddingTimer extends PureComponent {
             return null;
         }
 
+        if (this.props.stringOnly) {
+            return (
+                <span className='wedding-timer wedding-timer--string'>{days.join('')}</span>
+            );
+        }
+
         return (
             <section className='wedding-timer'>
                 <div className='wedding-timer_inner'>
@@ -56,5 +63,9 @@ class WeddingTimer extends PureComponent {
         );
     }
 }
+
+WeddingTimer.propTypes = {
+    stringOnly: PropType.bool
+};
 
 export default WeddingTimer;

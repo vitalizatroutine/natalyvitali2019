@@ -68,4 +68,9 @@ $block-size: 50px !default;
       text-transform: uppercase;
     }
   }
+
+  &--string {
+    position: static;
+    width: auto;
+  }
 }
