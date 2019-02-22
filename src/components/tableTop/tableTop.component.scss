@@ -1,0 +1,34 @@
+@import '../../resources/styles/variables';
+
+$table-top-width: 100vw;
+$table-top-height: 100vh;
+
+.table-top {
+  width: $table-top-width;
+  height: $table-top-height;
+  overflow: hidden;
+
+  &_surface {
+    transition: transform 1s ease-in-out;
+  }
+
+  &_pane {
+    display: inline-block;
+    width: $table-top-width;
+    height: $table-top-height;
+    border: 5px solid $rosegold;
+    background: mix($rosewood, $midnight, 40%);
+    vertical-align: top;
+
+    &-inner {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      transition: opacity 0.3s ease;
+    }
+
+    &--active &-inner {
+      opacity: 1;
+    }
+  }
+}
