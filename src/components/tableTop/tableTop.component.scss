@@ -2,6 +2,13 @@
 
 $table-top-width: 100vw;
 $table-top-height: 100vh;
+$table-top-padding: 20px;
+
+@keyframes table-top-zoom {
+  0%   { transform: scale(1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
 
 .table-top {
   width: $table-top-width;
@@ -10,14 +17,20 @@ $table-top-height: 100vh;
 
   &_surface {
     transition: transform 1s ease-in-out;
+    transform-origin: center;
+
+    &--moving {
+      .table-top_pane {animation: table-top-zoom 1s;}
+    }
   }
 
   &_pane {
     display: inline-block;
-    width: $table-top-width;
-    height: $table-top-height;
-    border: 5px solid $rosegold;
+    width: calc(#{$table-top-width} + #{$table-top-padding * 2});
+    height: calc(#{$table-top-height} + #{$table-top-padding * 2});
+    padding: $table-top-padding;
     background: mix($rosewood, $midnight, 40%);
+    background-clip: content-box;
     vertical-align: top;
 
     &-inner {

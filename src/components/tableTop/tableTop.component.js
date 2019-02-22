@@ -20,10 +20,11 @@ class TableTop extends PureComponent {
             pos: {
                 x: (props.startingPos && props.startingPos.x) || 0,
                 y: (props.startingPos && props.startingPos.y) || 0,
-            }
+            },
+            isMoving: false
         };
 
-        this.handleKeyDown = throttle(this.handleKeyDown, 1000);
+        this.handleKeyDown = throttle(this.handleKeyDown, 1050);
     }
 
     /**
@@ -49,49 +50,42 @@ class TableTop extends PureComponent {
         const {pos} = this.state;
         event = event || window.event;
 
+        const newState = {
+            isMoving: true
+        };
+
         switch(event.key) {
             case 'ArrowLeft':
-                return this.setState({
-                    pos: {
-                        ...pos,
-                        x: pos.x > 0 ? pos.x - 1 : 0
-                    }
-                });
+                newState.pos = {
+                    ...pos,
+                    x: pos.x > 0 ? pos.x - 1 : 0
+                };
+                break;
             case 'ArrowRight':
-                return this.setState({
-                    pos: {
+                newState.pos = {
                         ...pos,
                         x: pos.x < (size[0] - 1) ? pos.x + 1 : (size[0] - 1)
-                    }
-                });
+                };
+                break;
             case 'ArrowUp':
-                return this.setState({
-                    pos: {
+                newState.pos = {
                         ...pos,
                         y: pos.y > 0 ? pos.y - 1 : 0
-                    }
-                });
+                };
+                break;
             case 'ArrowDown':
-                return this.setState({
-                    pos: {
-                        ...pos,
-                        y: pos.y < (size[1] - 1) ? pos.y + 1 : (size[1] - 1)
-                    }
-                });
+                newState.pos = {
+                    ...pos,
+                    y: pos.y < (size[1] - 1) ? pos.y + 1 : (size[1] - 1)
+                };
+                break;
             default:
-                return;
+                break;
         }
-    };
 
-    /**
-     * Handle start of TableTop hiding process
-     * This is done to provide a fadeout animation
-     */
-    handleClick = (event) => {
-        const {onTableTopClick} = this.props;
-
-        event.target && event.target.blur();
-        onTableTopClick && onTableTopClick(event);
+        this.setState(newState, () => {
+            setTimeout(() => this.setState({isMoving: false}), 1000);
+        })
     };
 
     /**
@@ -105,9 +99,9 @@ class TableTop extends PureComponent {
 
         return {
             surface: {
-                width: `${size[0]}00vw`,
-                height: `${size[1]}00vh`,
-                transform: `translate(-${100 * x}vw, -${100 * y}vh)`
+                width: `calc(${size[0]}00vw + ${size[0] * 40}px)`,
+                height: `calc(${size[1]}00vw + ${size[1] * 40}px)`,
+                transform: `translate(calc(-${100 * x}vw - ${40 * x + 20}px), calc(-${100 * y}vh - ${40 * y + 20}px))`
             }
         };
     };
@@ -118,17 +112,19 @@ class TableTop extends PureComponent {
      */
     render() {
         const {className, panes} = this.props;
-        const {x, y} = this.state.pos;
+        const {pos, isMoving} = this.state;
+        const {x, y} = pos;
 
         const baseClassName = getClassName('table-top', [
             {condition: className, trueClassName: className}
         ]);
+        const surfaceClassName = isMoving ? 'table-top_surface table-top_surface--moving' : 'table-top_surface';
 
         const styles = this.getStyles();
 
         return (
             <main className={baseClassName}>
-                <div className='table-top_surface' style={styles.surface}>
+                <div className={surfaceClassName} style={styles.surface}>
                     {(panes || []).map((pane) => {
                         const isActive = ((pane.x === x) && (pane.y === y));
                         const paneClassName = !isActive ? 'table-top_pane' : 'table-top_pane table-top_pane--active';
@@ -136,7 +132,7 @@ class TableTop extends PureComponent {
                         return (
                             <section key={`table-top-pane--${pane.id}`} className={paneClassName}>
                                 <div className='table-top_pane-inner'>
-                                    {pane.view}
+                                    {isActive && pane.view}
                                 </div>
                             </section>
                         );
