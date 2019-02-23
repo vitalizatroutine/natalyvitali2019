@@ -2,6 +2,7 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {throttle} from 'lodash';
 import {getClassName} from '../../utils/react.util';
+import TableTopPane from './pane/tableTopPane.component';
 import './tableTop.component.css';
 
 /**
@@ -16,11 +17,18 @@ class TableTop extends PureComponent {
     constructor(props) {
         super(props);
 
+        const {startingPos} = props;
+        const pos = {x: 0, y: 0};
+
+        if (startingPos) {
+            Object.assign(pos, {
+                x: startingPos[0],
+                y: startingPos[1]
+            })
+        }
+
         this.state = {
-            pos: {
-                x: (props.startingPos && props.startingPos.x) || 0,
-                y: (props.startingPos && props.startingPos.y) || 0,
-            },
+            pos,
             isMoving: false
         };
 
@@ -127,14 +135,11 @@ class TableTop extends PureComponent {
                 <div className={surfaceClassName} style={styles.surface}>
                     {(panes || []).map((pane) => {
                         const isActive = ((pane.x === x) && (pane.y === y));
-                        const paneClassName = !isActive ? 'table-top_pane' : 'table-top_pane table-top_pane--active';
 
                         return (
-                            <section key={`table-top-pane--${pane.id}`} className={paneClassName}>
-                                <div className='table-top_pane-inner'>
-                                    {isActive && pane.view}
-                                </div>
-                            </section>
+                            <TableTopPane key={`table-top-pane--${pane.id}`} isActive={isActive}>
+                                {pane.view}
+                            </TableTopPane>
                         );
                     })}
                 </div>
@@ -146,7 +151,7 @@ class TableTop extends PureComponent {
 TableTop.propTypes = {
     size: PropTypes.arrayOf(PropTypes.number).isRequired,
     startingPos: PropTypes.arrayOf(PropTypes.number),
-    panes: PropTypes.arrayOf(PropTypes.objectOf({
+    panes: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         x: PropTypes.number.isRequired,
         y: PropTypes.number.isRequired,

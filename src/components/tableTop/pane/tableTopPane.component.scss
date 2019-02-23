@@ -1,0 +1,26 @@
+@import '../../../resources/styles/variables';
+
+$table-top-width: 100vw;
+$table-top-height: 100vh;
+$table-top-padding: 20px;
+
+.table-top-pane {
+  display: inline-block;
+  width: calc(#{$table-top-width} + #{$table-top-padding * 2});
+  height: calc(#{$table-top-height} + #{$table-top-padding * 2});
+  padding: $table-top-padding;
+  background: mix($rosewood, $midnight, 40%);
+  background-clip: content-box;
+  vertical-align: top;
+
+  &_inner {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease;
+  }
+
+  &--active &_inner {
+    opacity: 1;
+  }
+}
