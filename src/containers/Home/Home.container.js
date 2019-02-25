@@ -63,7 +63,7 @@ class HomeContainer extends Component {
                     panes={[{
                         id: 'test', x: 0, y: 0
                     }, {
-                        id: 'test1', x: 1, y: 0
+                        id: 'test1', label: 'Photos', x: 1, y: 0
                     }, {
                         id: 'test2', x: 2, y: 0
                     }, {
@@ -84,7 +84,7 @@ class HomeContainer extends Component {
                     }, {
                         id: '7', x: 0, y: 2
                     }, {
-                        id: '8', x: 1, y: 2
+                        id: '8', label: 'Event Details', x: 1, y: 2
                     }, {
                         id: '9', x: 2, y: 2
                     }]}

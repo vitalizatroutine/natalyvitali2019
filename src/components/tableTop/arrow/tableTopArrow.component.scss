@@ -1,5 +1,6 @@
 @import '../../../resources/styles/variables';
 
+$table-top-arrow-limit: 100px;
 $table-top-arrow-size: 20px;
 
 .table-top-arrow {
@@ -39,11 +40,13 @@ $table-top-arrow-size: 20px;
   }
 
   &--up, &--down {
-    left: calc(50% -  #{$table-top-arrow-size / 2});
+    width: $table-top-arrow-limit;
+    left: calc(50% -  #{$table-top-arrow-limit / 2});
   }
 
   &--right, &--left {
-    top: calc(50% -  #{$table-top-arrow-size / 2});
+    height: $table-top-arrow-limit;
+    top: calc(50% -  #{$table-top-arrow-limit / 2});
     flex-direction: row;
   }
 
