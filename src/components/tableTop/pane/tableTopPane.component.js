@@ -81,7 +81,16 @@ class TableTopPane extends PureComponent {
 
 TableTopPane.propTypes = {
     children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    isActive: PropTypes.bool.isRequired
+    isActive: PropTypes.bool.isRequired,
+    arrows: PropTypes.arrayOf(PropTypes.shape({
+        direction: PropTypes.oneOf(['up', 'right', 'down', 'left']).isRequired,
+        label: PropTypes.string.isRequired,
+        targetPos: PropTypes.shape({
+            x: PropTypes.number.isRequired,
+            y: PropTypes.number.isRequired
+        }),
+        onArrowClick: PropTypes.func
+    }))
 };
 
 TableTopPane.defaultProps = {

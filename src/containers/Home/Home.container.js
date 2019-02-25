@@ -59,7 +59,7 @@ class HomeContainer extends Component {
 
                 <TableTop
                     size={[3,3]}
-                    startingPos={[1, 1]}
+                    startingPos={{x: 1, y: 1}}
                     panes={[{
                         id: 'test', x: 0, y: 0
                     }, {
@@ -70,6 +70,7 @@ class HomeContainer extends Component {
                         id: 'test3', x: 0, y: 1
                     }, {
                         id: 'heroBanner',
+                        label: 'Home',
                         x: 1,
                         y: 1,
                         view: (

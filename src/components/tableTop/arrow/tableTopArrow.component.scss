@@ -1,24 +1,92 @@
 @import '../../../resources/styles/variables';
 
+$table-top-arrow-size: 20px;
+
 .table-top-arrow {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  cursor: pointer;
+  animation: fade-in $transition-duration--default $transition-timing-function--default;
+  z-index: $z-index--level-three;
+
+  &_pointer, &_label {
+    transition: opacity $transition-duration--default $transition-timing-function--default;
+  }
+
+  &_pointer {
+    opacity: 0.5;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
 
   &_label {
+    opacity: 0;
+    margin: 8px;
+    padding: 5px 8px;
+    border-radius: $border-radius-small;
+    background-color: $midnight;
+    color: $white;
+    font-size: $font-size-small;
+  }
 
+  &:hover & {
+    &_pointer, &_label {
+      opacity: 1;
+    }
+  }
+
+  &--up, &--down {
+    left: calc(50% -  #{$table-top-arrow-size / 2});
+  }
+
+  &--right, &--left {
+    top: calc(50% -  #{$table-top-arrow-size / 2});
+    flex-direction: row;
+  }
+
+  &--down, &--right {
+    flex-flow: column-reverse;
+  }
+  &--right {
+    flex-flow: row-reverse;
   }
 
   &--up {
+    top: 20px;
 
+    .table-top-arrow_pointer {
+      border-width: 0 #{$table-top-arrow-size * 0.75} $table-top-arrow-size #{$table-top-arrow-size * 0.75};
+      border-color: transparent transparent $rosegold transparent;
+    }
   }
 
   &--right {
+    right: 20px;
 
+    .table-top-arrow_pointer {
+      border-width: #{$table-top-arrow-size * 0.75} 0 #{$table-top-arrow-size * 0.75} $table-top-arrow-size;
+      border-color: transparent transparent transparent $rosegold;
+    }
   }
 
   &--down {
+    bottom: 20px;
 
+    .table-top-arrow_pointer {
+      border-width: $table-top-arrow-size #{$table-top-arrow-size * 0.75} 0 #{$table-top-arrow-size * 0.75};
+      border-color: $rosegold transparent transparent transparent;
+    }
   }
 
   &--left {
+    left: 20px;
 
+    .table-top-arrow_pointer {
+      border-width: #{$table-top-arrow-size * 0.75} $table-top-arrow-size #{$table-top-arrow-size * 0.75} 0;
+      border-color: transparent $rosegold transparent transparent;
+    }
   }
 }

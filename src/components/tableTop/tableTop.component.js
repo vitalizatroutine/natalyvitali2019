@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {throttle} from 'lodash';
 import {getClassName} from '../../utils/react.util';
 import TableTopPane from './pane/tableTopPane.component';
+import TableTopArrow from './arrow/tableTopArrow.component';
 import './tableTop.component.css';
 
 /**
@@ -22,8 +23,8 @@ class TableTop extends PureComponent {
 
         if (startingPos) {
             Object.assign(pos, {
-                x: startingPos[0],
-                y: startingPos[1]
+                x: startingPos.x,
+                y: startingPos.y
             })
         }
 
@@ -54,34 +55,43 @@ class TableTop extends PureComponent {
      * @param event
      */
     handleKeyDown = (event) => {
+        event = event || window.event;
+
+        this.handlePaneTransition(event.key);
+    };
+
+    handlePaneTransition = (direction) => {
         const {size} = this.props;
         const {pos} = this.state;
-        event = event || window.event;
 
         const newState = {
             isMoving: true
         };
 
-        switch(event.key) {
+        switch(direction) {
             case 'ArrowLeft':
+            case 'left':
                 newState.pos = {
                     ...pos,
                     x: pos.x > 0 ? pos.x - 1 : 0
                 };
                 break;
             case 'ArrowRight':
+            case 'right':
                 newState.pos = {
-                        ...pos,
-                        x: pos.x < (size[0] - 1) ? pos.x + 1 : (size[0] - 1)
+                    ...pos,
+                    x: pos.x < (size[0] - 1) ? pos.x + 1 : (size[0] - 1)
                 };
                 break;
             case 'ArrowUp':
+            case 'up':
                 newState.pos = {
-                        ...pos,
-                        y: pos.y > 0 ? pos.y - 1 : 0
+                    ...pos,
+                    y: pos.y > 0 ? pos.y - 1 : 0
                 };
                 break;
             case 'ArrowDown':
+            case 'down':
                 newState.pos = {
                     ...pos,
                     y: pos.y < (size[1] - 1) ? pos.y + 1 : (size[1] - 1)
@@ -115,6 +125,53 @@ class TableTop extends PureComponent {
     };
 
     /**
+     * Get TableTopArrow props
+     * @param panes
+     * @param currentPane
+     * @returns {Array}
+     */
+    getArrows = (panes, currentPane) => {
+        const {x, y} = currentPane;
+
+        return (panes || []).map((pane) => {
+            if (!pane || !pane.label) {
+                return false;
+            }
+
+            const upAvailable = (pane.x === x) && (pane.y === y - 1);
+            const rightAvailable = (pane.y === y) && (pane.x === x + 1);
+            const downAvailable = (pane.x === x) && (pane.y === y + 1);
+            const leftAvailable = (pane.y === y) && (pane.x === x - 1);
+            const arrow = {
+                label: pane.label,
+                onArrowClick: this.handlePaneTransition
+            };
+
+            if (upAvailable || rightAvailable || downAvailable || leftAvailable) {
+                arrow.targetPos = {x: pane.x, y: pane.y}
+            }
+
+            if (upAvailable) {
+                arrow.direction = 'up';
+            }
+
+            if (rightAvailable) {
+                arrow.direction = 'right';
+            }
+
+            if (downAvailable) {
+                arrow.direction = 'down';
+            }
+
+            if (leftAvailable) {
+                arrow.direction = 'left';
+            }
+
+            return arrow;
+        }).filter((pane) => pane && pane.targetPos);
+    };
+
+    /**
      * Render TableTop Component
      * @returns {*}
      */
@@ -135,9 +192,21 @@ class TableTop extends PureComponent {
                 <div className={surfaceClassName} style={styles.surface}>
                     {(panes || []).map((pane) => {
                         const isActive = ((pane.x === x) && (pane.y === y));
+                        const arrows = this.getArrows(panes, pane);
 
                         return (
                             <TableTopPane key={`table-top-pane--${pane.id}`} isActive={isActive}>
+                                {(arrows || []).map((arrow) => {
+                                    const {direction, label, onArrowClick} = arrow;
+
+                                    return (
+                                        <TableTopArrow
+                                            direction={direction}
+                                            label={label}
+                                            onArrowClick={onArrowClick}
+                                        />
+                                    );
+                                })}
                                 {pane.view}
                             </TableTopPane>
                         );
@@ -150,7 +219,10 @@ class TableTop extends PureComponent {
 
 TableTop.propTypes = {
     size: PropTypes.arrayOf(PropTypes.number).isRequired,
-    startingPos: PropTypes.arrayOf(PropTypes.number),
+    startingPos: PropTypes.shape({
+        x: PropTypes.number.isRequired,
+        y: PropTypes.number.isRequired
+    }),
     panes: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.string.isRequired,
         x: PropTypes.number.isRequired,
