@@ -47,7 +47,7 @@ class Modal extends PureComponent {
         }
 
         if (prevProps.visible && !visible) {
-            this.handleHide();
+            this.handleStartHide();
         }
     };
 
@@ -92,7 +92,6 @@ class Modal extends PureComponent {
      * This is done to provide a fadeout animation
      */
     handleStartHide = () => {
-        const {onHide} = this.props;
         const {isBeingHidden} = this.state;
 
         if (isBeingHidden) {
@@ -107,7 +106,7 @@ class Modal extends PureComponent {
                     isBeingHidden: false
                 });
 
-                onHide && onHide();
+                this.handleHide();
             }, 350);
         });
     };
@@ -125,7 +124,7 @@ class Modal extends PureComponent {
      * @returns {*}
      */
     render() {
-        const {children, className, fullscreen} = this.props;
+        const {children, className, fullscreen, onHide} = this.props;
         const {isBeingHidden} = this.state;
 
         const baseClassName = getClassName('modal', [
@@ -136,7 +135,7 @@ class Modal extends PureComponent {
 
         return ReactDOM.createPortal((
             <div className={baseClassName}>
-                <div className='modal_mask' onClick={this.handleStartHide}/>
+                <div className='modal_mask' onClick={onHide}/>
                 <div className='modal_container'>
                     {children}
                 </div>

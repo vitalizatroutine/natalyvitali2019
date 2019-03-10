@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {API_URL} from '../../config';
+import request from 'request';
 import {loadPhotoset} from '../../utils/photo.util';
 import TableTop from '../../components/tableTop/tableTop.component';
 import HeroBanner from '../../components/heroBanner/heroBanner.component';
@@ -29,7 +31,13 @@ class HomeContainer extends Component {
     }
 
     handleRSVPSubmit = (form) => {
-        console.log('RSVP Form Submition', form);
+        request.post(`${API_URL}/googleapis/sheets`, {form}, (error) => {
+            if (error) {
+                console.log('error', error);
+            }
+
+            this.handleRSVPModalClose();
+        });
     };
 
     handleRSVPModalOpen = () => {

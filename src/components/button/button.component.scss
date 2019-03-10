@@ -78,6 +78,10 @@
     @include buttonTheme($midnight, $white, $slate, $white);
   }
 
+  &--rose-gold {
+    @include buttonTheme($rosegold, $rosewood, $rosewood, $white);
+  }
+
   &--white {
     @include buttonTheme($white, $slate, $pale-grey, $slate);
   }

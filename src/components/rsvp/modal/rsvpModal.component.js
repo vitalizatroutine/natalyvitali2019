@@ -38,7 +38,15 @@ class RSVP extends Component {
         const {onModalClose} = this.props;
 
         this.setState({
-            isModalOpen: false
+            isModalOpen: false,
+            form: {
+                first_name: '',
+                last_name: '',
+                party_size: 0,
+                email: '',
+                song_request: '',
+                note: ''
+            }
         });
 
         onModalClose && onModalClose();
@@ -66,6 +74,7 @@ class RSVP extends Component {
         }
 
         onSubmit(form);
+        this.handleModalClose();
     };
 
     getIsValid = (form) => {
@@ -163,7 +172,7 @@ class RSVP extends Component {
                                         onButtonClick={this.handleModalClose}
                                     />
                                     <Button
-                                        theme='pale-grey'
+                                        theme='rose-gold'
                                         tall={true}
                                         wide={true}
                                         label='Submit'
