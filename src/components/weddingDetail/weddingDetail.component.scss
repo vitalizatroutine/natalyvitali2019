@@ -1,0 +1,79 @@
+@import '../../resources/styles/variables';
+@import '../../resources/styles/mixins/generic';
+
+.wedding-detail {
+  width: 100%;
+  list-style: none;
+  text-align: center;
+
+  &_item {
+    display: inline-block;
+    padding: 30px 70px;
+    border-right: 1px solid rgba($rosegold, 0.3);
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &_title {
+    display: block;
+    margin-bottom: 10px;
+    font-family: $font-family--serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &_text {
+    font-size: 16px;
+    color: $rosegold;
+  }
+
+  @include breakpoint($screen--medium) {
+    .wedding-detail {
+      &_item {
+        padding: 25px 60px;
+      }
+    }
+  }
+
+  @include breakpoint($screen--small) {
+    .wedding-detail {
+      padding-bottom: 20px;
+
+      &_item {
+        display: block;
+        margin: 0 20%;
+        padding: 20px 0;
+        border-right: none;
+        border-bottom: 1px solid rgba($rosegold, 0.3);
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($screen--mobile) {
+    .wedding-detail {
+      &_item {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        margin: 0 20px;
+        padding: 0;
+        line-height: 40px;
+      }
+
+      &_title {
+        margin: 0 15px 0 0;
+      }
+
+      &_text {
+        font-size: 14px;
+      }
+    }
+  }
+}

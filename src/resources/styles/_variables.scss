@@ -1,7 +1,12 @@
 // Global Variables
 //-------------------------------------//
 
-$contain-width: 1280px;
+// Media Query Breakpoints
+//-------------------------------------//
+$screen--mobile: 480px !default;
+$screen--small: 768px !default;
+$screen--medium: 1367px !default;
+$screen--large: 1920px !default;
 
 // Colours
 //-------------------------------------//
@@ -155,18 +160,6 @@ $z-index--modal-level-three: $z-index--mask + 15; // used for global toast notif
 //-------------------------------------//
 $transition-duration--default: 0.3s;
 $transition-timing-function--default: ease;
-
-
-// Media Query Breakpoints
-//-------------------------------------//
-$screen-small: 1280px !default;
-$screen-medium: 1680px !default;
-$screen-large: 1920px !default;
-
-// So media queries don't overlap when required, provide a maximum
-$screen-medium-min: ($screen-small + 1) !default;
-$screen-large-min: ($screen-medium + 1) !default;
-
 
 //** Disabled cursor for form controls and buttons.
 $cursor-disabled: not-allowed !default;

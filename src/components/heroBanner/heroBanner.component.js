@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import WeddingTimer from '../weddingTimer/weddingTimer.component';
 import './heroBanner.component.css';
 
 class HeroBanner extends PureComponent {
@@ -105,22 +104,6 @@ class HeroBanner extends PureComponent {
                     <section className='hero-banner_intro'>
                         <h3 className='hero-banner_subtitle'>Join us to celebrate the wedding of</h3>
                         <h1 className='hero-banner_title'>Nataly and Vitali</h1>
-                        <ul className='hero-banner_detail-list'>
-                            <li className='hero-banner_detail-item'>
-                                <span className='hero-banner_detail-title'>Venue</span>
-                                <span className='hero-banner_detail-text'>daVinci Banquet Hall</span>
-                            </li>
-                            <li className='hero-banner_detail-item'>
-                                <span className='hero-banner_detail-title'>Date</span>
-                                <span className='hero-banner_detail-text'>09.07.19</span>
-                            </li>
-                            <li className='hero-banner_detail-item'>
-                                <span className='hero-banner_detail-title'>Days Until "I Do"</span>
-                                <span className='hero-banner_detail-text'>
-                                    <WeddingTimer stringOnly={true}/>
-                                </span>
-                            </li>
-                        </ul>
                     </section>
                     {children}
                 </div>
